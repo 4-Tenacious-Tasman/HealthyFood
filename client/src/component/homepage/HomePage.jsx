@@ -1,4 +1,6 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Carousel from './Carousel.jsx';
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -10,7 +12,38 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <p>homepage</p>
+      <div>
+        <div className="header">
+
+          <div className="header-left">
+
+          </div>
+
+          <div className="header-right">
+
+          </div>
+
+        </div>
+
+
+        <div className="plan-box">
+
+        </div>
+
+
+        <div className="hero-section">
+        <Carousel />
+        </div>
+
+
+
+
+
+
+
+
+
+      </div>
     )
   }
 }

@@ -34,6 +34,7 @@ class App extends React.Component {
         <button name="profile" onClick={this.changePage}>UserProfile</button>
         </div>
         }
+
         {this.state.page === "home" && (
           <HomePage />
         )}

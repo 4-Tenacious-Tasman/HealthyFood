@@ -8,15 +8,15 @@ const db = require("../database/index.js");
 app.use(express.json());
 
 app.get('/test', (req,res)=>{
-  db.query('insert into test (val) values ("it worked");',(err,data)=>{
+  db.query("INSERT INTO healthy(value) VALUES('it worked');",(err,data)=>{
     if(err){
       console.log(err)
     }else{
-      db.query('select * from test;',(err,data)=>{
+      db.query('select * from healthy;',(err,data)=>{
         if(err){
           console.log(err)
         }else{
-          res.send(data)
+          res.send(data.rows)
         }
       })
      }

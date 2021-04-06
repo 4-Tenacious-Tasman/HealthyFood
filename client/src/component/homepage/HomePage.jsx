@@ -99,30 +99,42 @@ class HomePage extends React.Component {
         <HeroSection/>
         </div>
 
-        <div className="subscribe and reviews" style={{display: "flex"}}>
+        <div className="description page" style={{display: "flex"}}>
 
-          {/* <Box>
-            <p>subscription Box</p>
-          </Box>
+          <div className="photo + create meal plan desc">
+              <img></img>
+              <div>
+                <h2></h2>
+                <p></p>
+              </div>
+          </div>
 
-          <Carousel style={{width: "499px" }}>
-            <Carousel.Item style={{ height: "300px", width: "500px"  }}>
-              <h2>slide 1</h2>
-              <p>testimonial 1</p>
-            </Carousel.Item>
+          <div className="create recipe + image">
+              <div>
+                <h2></h2>
+                <p></p>
+              </div>
+              <img></img>
+          </div>
 
-            <Carousel.Item style={{ height: "300px", width: "500px"  }}>
-              <h2>slide 1</h2>
-              <p>testimonial 1</p>
-            </Carousel.Item>
-
-            <Carousel.Item style={{ height: "300px", width: "500px"  }}>
-              <h2>slide 1</h2>
-              <p>testimonial 1</p>
-            </Carousel.Item>
-          </Carousel> */}
+          <div className="photo + sustainability desc">
+            <img></img>
+              <div>
+                <h2></h2>
+                <p></p>
+              </div>
+          </div>
 
         </div>
+
+        <footer style={{backgroundColor: "#2da77d", display: "flex", justifyContent: "space-evenly", height: "50px"}}>
+            <p>CA privacy info</p>
+            <p>Careers</p>
+            <p>FAQ</p>
+            <p>contact us</p>
+            <p>about us</p>
+            <p>HealthyFood LLC 2021</p>
+        </footer>
 
 
 

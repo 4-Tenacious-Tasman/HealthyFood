@@ -65,8 +65,7 @@ class RecipeGen extends React.Component {
     const diet = this.state.diet !== '' ? this.state.diet : null;
     const cuisune = this.state.cuisune !== '' ? this.state.cuisune : null;
     const time = this.state.time !== '' ? this.state.cuisune : null;
-    console.log(diet, cuisune)
-    if(this.state.sent < 5 ) {
+    if(this.state.sent < 5 && this.state.cuisune !== "" && this.state.diet !== "" && this.state.time !== "") {
     axios.get(`https://api.spoonacular.com/recipes/random?number=1&tags=${cuisune},${diet},${time}&apiKey=46a2c8efa3664777a9f310510cfe7477`)
     .then(response => {
       console.log(response.data);
@@ -139,6 +138,7 @@ class RecipeGen extends React.Component {
           <Box>
             <label>Choose your Recipe options:</label>
             <select name="cuisune" value={this.state.cuisune} onChange={this.handleChange}>
+              <option selected hidden>Choose here</option>
               <option value="african">African</option>
               <option value="american">American</option>
               <option value="british">British</option>
@@ -157,7 +157,7 @@ class RecipeGen extends React.Component {
               <option value="korean">Korean</option>
               <option value="latin American">Latin American</option>
               <option value="mediterranean">Mediterranean</option>
-              <option value="mexican">Mexican</option>
+              <option value="mexican" defaultValue>Mexican</option>
               <option value="middleEastern">Middle Eastern</option>
               <option value="nordic">Nordic</option>
               <option value="southern">Southern</option>
@@ -167,6 +167,7 @@ class RecipeGen extends React.Component {
             </select>
 
             <select name="diet" value={this.state.diet} onChange={this.handleChange}>
+              <option selected hidden>Choose here</option>
               <option value="gluten Free">Gluten Free</option>
               <option value="ketogenic">Ketogenic</option>
               <option value="vegetarian">Vegetarian</option>
@@ -174,14 +175,15 @@ class RecipeGen extends React.Component {
               <option value="ovo-Vegetarian">Ovo-Vegetarian</option>
               <option value="vegan">Vegan</option>
               <option value="pescetarian">Pescetarian</option>
-              <option value="paleo">Paleo</option>
+              <option value="paleo" defaultValue>Paleo</option>
               <option value="primal">Primal</option>
               <option value="whole30">Whole30</option>
             </select>
 
             <select name="time" value={this.state.time} onChange={this.handleChange}>
+              <option selected hidden>Choose here</option>
               <option value="breakfast">Breakfast</option>
-              <option value="lunch">Lunch</option>
+              <option value="lunch" defaultValue>Lunch</option>
               <option value="dinner">Dinner</option>
               <option value="dessert">Dessert</option>
             </select>
@@ -189,7 +191,7 @@ class RecipeGen extends React.Component {
             <button onClick={this.getRecipe}>Get Recipe</button>
           </Box>
 
-          <Recipe recipe={this.state.currentRecipe} style={{display: "flex", flexDirection: "column"}} />
+          <Recipe recipe={this.state.currentRecipe} style={{display: "flex", flexDirection: "row"}} />
 
       </div>
     );

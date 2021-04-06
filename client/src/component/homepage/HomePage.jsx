@@ -2,11 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import HeroSection from './HeroSection.jsx';
 import MissionSection from './MissionSection.jsx';
+import { NavLink, Switch, Route } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.css";
+import Carousel from "react-bootstrap/Carousel";
 import Logo from "../../../public/images/HealthyFoodLogo.jpeg";
+
+
 
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
+  position: static;
 `;
 
 const LeftHeader = styled.div`
@@ -16,6 +22,7 @@ const LeftHeader = styled.div`
 const RightHeader = styled.div`
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 `;
 
 
@@ -36,29 +43,25 @@ const Button = styled.button`
   }
 `;
 
-const ButtonRoute = styled.button`
-  background: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
+// const ButtonRoute = styled.button`
+//   background: transparent;
+//   border: none;
+//   outline: none;
+//   cursor: pointer;
 
-  &:hover {
-    font-weight: bold;
-  }
-`;
+//   &:hover {
+//     font-weight: bold;
+//   }
+// `;
 
 
-const Box = styled.div`
-  border: 5px solid black;
-  border-radius: 15px;
-  height: 100px;
-  width: 250px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-`;
+// const Box = styled.div`
+//   border: 5px solid black;
+//   border-radius: 15px;
+//   height: 80px;
+//   width: 125px;
+//   justify-Content: "flex-start";
+// `;
 
 
 class HomePage extends React.Component {
@@ -75,49 +78,63 @@ class HomePage extends React.Component {
         <Header className="header">
 
           <LeftHeader className="header-left">
-            <ImageHead src={Logo}></ImageHead>
-            <ButtonRoute>Local Market</ButtonRoute>
-            <ButtonRoute>Recipe Generator</ButtonRoute>
+          <NavLink src={Logo} exact to='/' activeStyle={{fontWeight: "bold"}}> <ImageHead src={Logo}></ImageHead></NavLink>
+          <NavLink exact to='/marketplace' activeStyle={{fontWeight: "bold"}} style={{margin: "5px"}}>Marketplace</NavLink>
+          <NavLink exact to='/RecipeGenerator' activeStyle={{fontWeight: "bold"}} style={{margin: "5px"}}>RecipeGenerator</NavLink>
+
           </LeftHeader>
 
           <RightHeader className="header-right">
-              <Button>Login</Button>
-              <Button>Signup</Button>
+          <NavLink exact to='/userprofile' activeStyle={{fontWeight: "bold"}}><Button>Login/Signup</Button></NavLink>
+
           </RightHeader>
 
         </Header>
 
         <div className="mission/values">
           <MissionSection />
-          {/* <button>Look at Subscription plans here!</button> */}
         </div>
-
-
-        <div className="plan-box">
-          <Box>
-              <div className="top options">
-
-              </div>
-
-              <div className="bottom options">
-
-              </div>
-          </Box>
-        </div>
-
 
         <div className="hero-section">
         <HeroSection/>
         </div>
 
+        <div className="description page" style={{display: "flex"}}>
 
-
-          <div>
-            <h3>footer</h3>
+          <div className="photo + create meal plan desc">
+              <img></img>
+              <div>
+                <h2></h2>
+                <p></p>
+              </div>
           </div>
 
+          <div className="create recipe + image">
+              <div>
+                <h2></h2>
+                <p></p>
+              </div>
+              <img></img>
+          </div>
 
+          <div className="photo + sustainability desc">
+            <img></img>
+              <div>
+                <h2></h2>
+                <p></p>
+              </div>
+          </div>
 
+        </div>
+
+        <footer style={{backgroundColor: "#2da77d", display: "flex", justifyContent: "space-evenly", height: "50px", position: "fixed", width: "100%", left: "0", bottom: "0"}}>
+            <p>CA privacy info</p>
+            <p>Careers</p>
+            <p>FAQ</p>
+            <p>contact us</p>
+            <p>about us</p>
+            <p>HealthyFood LLC 2021</p>
+        </footer>
 
 
 

@@ -14,12 +14,12 @@ const Login = (props) => {
           { isAuthenticated === true ?
             <div>
               <h3 className={`${styles.title} ${styles.fadeIn}`}>Sign Out</h3>
-              <LogoutButton />
+              <div className={styles.buttonBox}> <LogoutButton /> </div>
             </div>
           :
             <div>
               <h3 className={`${styles.title} ${styles.fadeIn}`}>Welcome back!</h3>
-              <LoginButton />
+              <div className={styles.buttonBox}><LoginButton /></div>
               <h6 className={styles.register} onClick={() => loginWithRedirect()}>Don&apos;t have an account? Get started</h6>
             </div>
           }

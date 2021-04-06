@@ -21,8 +21,15 @@
 
 .title {
   font-family: 'DM Serif Display', serif;
-  font-size: 4em;
+  /* font-size: 4em; */
+  font-size: 4vw;
   margin-bottom: .5em;
+}
+
+.buttonBox{
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .button {
@@ -55,7 +62,7 @@
 }
 
 .logo {
-  height: 45%;
+  height: auto;
   width: 45%;
   margin: 0 auto;
 }

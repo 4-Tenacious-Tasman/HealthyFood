@@ -1,0 +1,22 @@
+CREATE TABLE IF NOT EXISTS users(
+  id BIGSERIAL NOT NULL,
+  first_name VARCHAR(255) NOT NULL,
+  last_name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  age INT NOT NULL,
+  target_calories INT,
+  diet VARCHAR(50),
+  exclude VARCHAR(1000),
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE IF NOT EXISTS daily_meal_plans(
+  id BIGSERIAL NOT NULL,
+  user_id INT NOT NULL,
+  date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  breakfast JSON NOT NULL,
+  lunch JSON NOT NULL,
+  dinner JSON NOT NULL,
+  nutrients JSON NOT NULL,
+  PRIMARY KEY(id)
+);

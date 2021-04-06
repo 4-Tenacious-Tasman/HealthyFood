@@ -195,7 +195,7 @@ class RecipeGen extends React.Component {
 
             <button onClick={this.getRecipe}>Get Recipe</button>
           </Box>
-            {this.state.tryAgain === false ? (          <Recipe recipe={this.state.currentRecipe} style={{display: "flex", flexDirection: "row"}} />): (<p>No results found, try again</p>)
+            {this.state.tryAgain === false ? (<Recipe recipe={this.state.currentRecipe} style={{display: "flex", flexDirection: "row"}} />): (<p>No results found, try again</p>)
             }
 
 

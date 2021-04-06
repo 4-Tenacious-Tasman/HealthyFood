@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/4-Tenacious-Tasman/HealthyFood#readme",
   "dependencies": {
+    "@auth0/auth0-react": "^1.4.0",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "css-loader": "^5.2.0",

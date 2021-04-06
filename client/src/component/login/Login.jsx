@@ -1,18 +1,16 @@
 import React from 'react';
+import LoginButton from './LoginButton.jsx';
+import LogoutButton from './LogoutButton.jsx';
+import { useAuth0 } from "@auth0/auth0-react";
 
-class Login extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    }
-  }
-
-  render() {
-    return (
-      <p>login</p>
-    )
-  }
+const Login = (props) => {
+  const { user, isLoading, isAuthenticated } = useAuth0()
+  return (
+      <div>
+        { !isAuthenticated && <LoginButton /> }
+        { isAuthenticated && <LogoutButton /> }
+      </div>
+  )
 }
 
 export default Login;

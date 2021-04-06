@@ -22,23 +22,29 @@ class MissionSection extends React.Component {
   render() {
     return (
       <div>
-        <div className="container-fluid" >
-          <Carousel styled={{marginLeft: "auto"}}>
+        <div className="container-fluid" style={{display: "flex", justifyContent: "center"}} >
+          <Carousel style={{width: "499px"}}>
             <Carousel.Item style={{ height: "300px", width: "500px" }}>
               <img
-                style={{ height: "300px" }}
+                style={{ height: "300px", borderRadius: "5px" }}
                 className="d-block w-100"
                 src={veggies}
               />
+              <Carousel.Caption>
+                <p>Sourced from local farmers</p>
+              </Carousel.Caption>
 
             </Carousel.Item>
 
             <Carousel.Item style={{ height: "300px", width: "500px" }}>
             <img
-                style={{ height: "300px" }}
+                style={{ height: "300px", borderRadius: "5px" }}
                 className="d-block w-100"
                 src={blueberry}
               />
+              <Carousel.Caption>
+                <p>GMO free, organic, fresh fruits and vegetables</p>
+              </Carousel.Caption>
 
 
             </Carousel.Item>
@@ -49,6 +55,9 @@ class MissionSection extends React.Component {
                 className="d-block w-100"
                 src={cows}
               />
+              <Carousel.Caption>
+                <p>Happy Cows come from HealthyFood</p>
+              </Carousel.Caption>
 
 
             </Carousel.Item>
@@ -60,7 +69,6 @@ class MissionSection extends React.Component {
                 className="d-block w-100"
                 src={familyFarm}
               />
-
               <Carousel.Caption>
                 <Subscribe>Subscribe today!</Subscribe>
               </Carousel.Caption>

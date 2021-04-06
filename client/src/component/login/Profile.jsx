@@ -9,14 +9,13 @@ const Profile = () => {
   }
 
   return (
-    isAuthenticated && (
+    isAuthenticated ? (
       <div>
         <img src={user.picture} alt={user.name} />
-        <h2>{user.name}</h2>
-        <p>{user.email}</p>
-        <p>{user.id}</p>
+        <h2>{user.email}</h2>
       </div>
-    )
+    ) :
+    (<h2>Please Login</h2>)
   );
 };
 

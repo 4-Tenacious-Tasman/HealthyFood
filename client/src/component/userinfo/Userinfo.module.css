@@ -1,3 +1,42 @@
+.photoContainer{
+  position: fixed;
+  width: 25%;
+  height: 30%;
+
+  right: 60%
+}
+.userinfo{
+  width: 100%;
+}
+.Preferances{
+  width: 30%;
+}
+.UserPhoto{
+  display: inline;
+}
+.GenerateMeal{
+  position: fixed;
+  left: 50%;
+  width: 30%;
+  top: 15%;
+  height: 30%;
+}
+.GenerateMealBTN{
+  position: fixed;
+  width: 10%;
+  bottom: 56%;
+  right: 30%;
+}
+.weeklyCalendar{
+  position: fixed;
+  bottom: 30%;
+  width: 50%;
+  left: 20%;
+  height: 200px;
+  background-color:;
+}
+
 .test{
-  background-color: brown;
+  padding: 100px;
+  background-color:grey;
 }

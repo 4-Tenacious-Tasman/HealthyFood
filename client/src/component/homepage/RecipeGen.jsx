@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import Logo from "../../../public/images/HealthyFoodLogo.jpeg";
 import axios from 'axios';
+import Recipe from './Recipe.jsx';
 
 const Header = styled.div`
   display: flex;
@@ -38,11 +39,12 @@ const Button = styled.button`
 `;
 
 const Box = styled.div`
-  border: 5px solid black;
+  border: 5px solid lightgreen;
   border-radius: 15px;
-  height: 80px;
-  width: 125px;
-  justify-Content: "flex-start";
+  height: 200px;
+  width: 250px;
+  justify-Content: flex-start;
+  flex-direction: column;
 `;
 
 class RecipeGen extends React.Component {
@@ -68,7 +70,6 @@ class RecipeGen extends React.Component {
     axios.get(`https://api.spoonacular.com/recipes/random?number=1&tags=${cuisune},${diet},${time}&apiKey=46a2c8efa3664777a9f310510cfe7477`)
     .then(response => {
       console.log(response.data);
-    }, () => {
       this.setState({
         sent: this.state.sent + 1,
         currentRecipe: response.data
@@ -188,15 +189,7 @@ class RecipeGen extends React.Component {
             <button onClick={this.getRecipe}>Get Recipe</button>
           </Box>
 
-      {this.state.sent &&
-        <div>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-        </div>}
-
+          <Recipe recipe={this.state.currentRecipe} />
 
       </div>
     );

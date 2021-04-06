@@ -189,7 +189,7 @@ class RecipeGen extends React.Component {
             <button onClick={this.getRecipe}>Get Recipe</button>
           </Box>
 
-          <Recipe recipe={this.state.currentRecipe} />
+          <Recipe recipe={this.state.currentRecipe} style={{display: "flex", flexDirection: "column"}} />
 
       </div>
     );

@@ -2,16 +2,16 @@ import React from 'react';
 
 
 function Recipe(props) {
-
   return (
     <div>
-      <h2>Here is your random recipe!</h2>
       {props.recipe.recipes ?
       <>
-      <li>{props.recipe.recipes[0].title}</li>
-      <li> <p>{props.recipe.recipes[0].spoonacularSourceUrl}</p></li>
-      <li>{props.recipe.recipes[0].summary}</li>
-      <li>{props.recipe.recipes[0].instructions}</li>
+      <h2>{props.recipe.recipes[0].title}</h2>
+      <a href={`${props.recipe.recipes[0].spoonacularSourceUrl}`}>Recipe Link Here!</a>
+      <label>Summary:</label>
+      <li>{props.recipe.recipes[0].summary.replace(/<\/?[^>]+(>|$)/g, "")}</li>
+      <label>Instructions:</label>
+      <li>{props.recipe.recipes[0].instructions.replace(/<\/?[^>]+(>|$)/g, "")}</li>
       </>
       :
       null}

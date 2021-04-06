@@ -56,6 +56,7 @@ class RecipeGen extends React.Component {
       time: '',
       sent: 0,
       currentRecipe: [],
+      tryAgain: false,
     };
     this.getRecipe = this.getRecipe.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -69,9 +70,14 @@ class RecipeGen extends React.Component {
     axios.get(`https://api.spoonacular.com/recipes/random?number=1&tags=${cuisune},${diet},${time}&apiKey=46a2c8efa3664777a9f310510cfe7477`)
     .then(response => {
       console.log(response.data);
+      if (response.data.length > 0){
+        this.setState({
+          sent: this.state.sent + 1,
+          currentRecipe: response.data
+        })
+      }
       this.setState({
-        sent: this.state.sent + 1,
-        currentRecipe: response.data
+        tryAgain: !this.state.tryAgain
       })
     })
     .catch(err => {
@@ -159,7 +165,6 @@ class RecipeGen extends React.Component {
               <option value="mediterranean">Mediterranean</option>
               <option value="mexican" defaultValue>Mexican</option>
               <option value="middleEastern">Middle Eastern</option>
-              <option value="nordic">Nordic</option>
               <option value="southern">Southern</option>
               <option value="spanish">Spanish</option>
               <option value="thai">Thai</option>
@@ -190,8 +195,9 @@ class RecipeGen extends React.Component {
 
             <button onClick={this.getRecipe}>Get Recipe</button>
           </Box>
+            {this.state.tryAgain === false ? (          <Recipe recipe={this.state.currentRecipe} style={{display: "flex", flexDirection: "row"}} />): (<p>No results found, try again</p>)
+            }
 
-          <Recipe recipe={this.state.currentRecipe} style={{display: "flex", flexDirection: "row"}} />
 
       </div>
     );

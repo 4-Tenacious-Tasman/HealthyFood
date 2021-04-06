@@ -127,7 +127,7 @@ class HomePage extends React.Component {
 
         </div>
 
-        <footer style={{backgroundColor: "#2da77d", display: "flex", justifyContent: "space-evenly", height: "50px"}}>
+        <footer style={{backgroundColor: "#2da77d", display: "flex", justifyContent: "space-evenly", height: "50px", position: "fixed", width: "100%", left: "0", bottom: "0"}}>
             <p>CA privacy info</p>
             <p>Careers</p>
             <p>FAQ</p>

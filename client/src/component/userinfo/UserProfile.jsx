@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Preferances from './UserPreferences.jsx'
+import Preferences from './UserPreferences.jsx'
 import styles from './Userinfo.module.css';
 
 class UserProfile extends React.Component {
@@ -19,16 +19,16 @@ class UserProfile extends React.Component {
           exclude: null
         }
       },
-      PreferancesBool: false
+      PreferencesBool: false
 
     }
     this.updatePreferences = this.updatePreferences.bind(this);
     this.submitPreferences = this.submitPreferences.bind(this);
   }
   updatePreferences() {
-    let modal = !this.state.PreferancesBool;
+    let modal = !this.state.PreferencesBool;
     this.setState({
-      PreferancesBool: modal
+      PreferencesBool: modal
     })
   }
 
@@ -58,14 +58,14 @@ class UserProfile extends React.Component {
   render() {
     return (
       <div >
-        {this.state.PreferancesBool ? <Preferances close={this.updatePreferences} submitPreferences={this.submitPreferences} /> : null}
+        {this.state.PreferencesBool ? <Preferences close={this.updatePreferences} submitPreferences={this.submitPreferences} /> : null}
         <div className={`${styles.photoContainer} container mt-5 d-flex`} >
           <div className={`${styles.userinfo} card p-3`}>
             <img src='https://myspace.com/common/images/user.png' className={`${styles.UserPhoto} rounded`} width="30%" />
             <br></br>
             <p className={styles.greeting}>Hello User</p>
             <br></br>
-            <button className={styles.Preferances} onClick={(event) => { event.preventDefault(); this.updatePreferances() }} >Edit Profile</button>
+            <button className={styles.Preferences} onClick={(event) => { event.preventDefault(); this.updatePreferences() }} >Edit Profile</button>
 
           </div>
 

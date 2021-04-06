@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Userinfo.module.css';
 
 
-class Preferances extends React.Component {
+class Preferences extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -54,7 +54,7 @@ class Preferances extends React.Component {
       <div className={styles.modalBackground}>
 
         <div className={`${styles.imageModal} ${styles.fadeIn}`}>
-          <button className={`${styles.leavePreferances}`} onClick={(event) => { event.preventDefault(); this.props.close() }}>✕</button>
+          <button className={`${styles.leavePreferences}`} onClick={(event) => { event.preventDefault(); this.props.close() }}>✕</button>
           <form onSubmit={this.handleSubmit} className={`${styles.PreferencesForm}`}>
             <div className={`${styles.FirstName}`}>
               <input placeholder={`First Name`} onChange={this.handleChange} name={`first_name`}  value={this.state.first_name} required />
@@ -120,4 +120,4 @@ class Preferances extends React.Component {
   }
 
 }
-export default Preferances;
+export default Preferences;

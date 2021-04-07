@@ -35,7 +35,6 @@ const Navigation = () => {
     <NavLink exact to='/RecipeGenerator' activeStyle={{fontWeight: "bold"}} style={{margin: "5px"}}>RecipeGenerator</NavLink>
     </LeftHeader>
     <RightHeader className="header-right">
-    <NavLink exact to='/UserProfileA'activeStyle={{fontWeight: "bold"}} style={{margin: "5px"}}>Bypass Authentication</NavLink>
     <NavLink exact to='/login' activeStyle={{fontWeight: "bold"}} style={{margin: "5px"}}>Login</NavLink>
     <NavLink exact to='/userprofile' activeStyle={{fontWeight: "bold"}} style={{margin: "5px"}}>Profile</NavLink>
     </RightHeader>

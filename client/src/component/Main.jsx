@@ -7,6 +7,7 @@ import RecipeGen from './homepage/RecipeGen.jsx';
 import Login from './login/Login.jsx';
 import { useAuth0 } from "@auth0/auth0-react";
 import Navigation from './homepage/Navigation.jsx';
+import Profile from './login/Profile.jsx';
 
  const Main = () => {
 
@@ -16,9 +17,10 @@ import Navigation from './homepage/Navigation.jsx';
     <Router>
       <Navigation />
       <Switch>
-        <Route path='/UserProfileA' render={() => (<UserProfile isAuthenticated={isAuthenticated} userEmail={user.email} />)} />
         <Route path='/marketplace' component={FarmersMarket}></Route>
-        <Route path='/userprofile' render={() => (<UserProfile isAuthenticated={isAuthenticated} userEmail={user.email} />)}>{isAuthenticated ? <Redirect to='/userprofile' /> : <Redirect to='/login' />}</Route>
+        <Route path='/userprofile'>
+          {!isAuthenticated ? <Redirect to='/login' /> : <Profile />}
+        </Route>
         <Route path='/login' component={Login}></Route>
         <Route path='/RecipeGenerator' component={RecipeGen}></Route>
         <Route path='/' component={HomePage}></Route>

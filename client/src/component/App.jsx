@@ -1,7 +1,7 @@
 import React from 'react';
 import Main from './Main.jsx';
 import { NavLink, Switch, Route } from 'react-router-dom';
-import styled from 'styled-components';
+import styles from './homepage/Homepage.module.css';
 import Logo from "../../public/images/HealthyFoodLogo.jpeg";
 import Navigation from './homepage/Navigation.jsx';
 
@@ -16,16 +16,16 @@ class App extends React.Component {
 
   render() {
     return(
-      <div className='app-container'>
+      <div className={styles.pageContainer}>
         <Main />
 
-        <footer style={{backgroundColor: "#2da77d", display: "flex", justifyContent: "space-evenly", height: "50px", position: "fixed", width: "100%", left: "0", bottom: "0"}}>
+        <footer className={styles.footerContainer}>
             <p>CA privacy info</p>
             <p>Careers</p>
             <p>FAQ</p>
             <p>Contact us</p>
             <p>About us</p>
-            <p>HealthyFood inc 2021</p>
+            <p>HealthyFood Inc 2021</p>
         </footer>
 
       </div>

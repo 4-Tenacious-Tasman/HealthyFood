@@ -13,7 +13,7 @@ class RecipeGen extends React.Component {
       time: '',
       sent: 0,
       currentRecipe: [],
-      tryAgain: false,
+      showRecipe: false,
     };
     this.getRecipe = this.getRecipe.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -26,16 +26,12 @@ class RecipeGen extends React.Component {
     if(this.state.sent < 5 && this.state.cuisune !== "" && this.state.diet !== "" && this.state.time !== "") {
     axios.get(`https://api.spoonacular.com/recipes/random?number=1&tags=${cuisune},${diet},${time}&apiKey=46a2c8efa3664777a9f310510cfe7477`)
     .then(response => {
-      console.log(response.data);
-      if (response.data.length > 0){
+      console.log(response.data)
         this.setState({
           sent: this.state.sent + 1,
-          currentRecipe: response.data
+          currentRecipe: response.data,
+          showRecipe: true,
         })
-      }
-      this.setState({
-        tryAgain: !this.state.tryAgain
-      })
     })
     .catch(err => {
       console.log(err);
@@ -93,14 +89,14 @@ class RecipeGen extends React.Component {
             <select name="diet" value={this.state.diet} onChange={this.handleChange}>
               <option defaultValue hidden>Choose here</option>
               <option value="">None</option>
-              <option value="gluten Free">Gluten Free</option>
+              <option value="gluten free">Gluten Free</option>
               <option value="ketogenic">Ketogenic</option>
               <option value="vegetarian">Vegetarian</option>
               <option value="lacto-Vegetarian">Lacto-Vegetarian</option>
               <option value="ovo-Vegetarian">Ovo-Vegetarian</option>
               <option value="vegan">Vegan</option>
               <option value="pescetarian">Pescetarian</option>
-              <option value="paleo" >Paleo</option>
+              <option value="paleolithic" >Paleo</option>
               <option value="primal">Primal</option>
               <option value="whole30">Whole30</option>
             </select>
@@ -119,7 +115,7 @@ class RecipeGen extends React.Component {
             <button className={styles.recipeButton} onClick={this.getRecipe}>Get Recipe</button>
 
           </div>
-            {this.state.tryAgain === false ? (<Recipe recipe={this.state.currentRecipe} className={styles.newRecipe} />): (<p>No results found, try again</p>)
+            {this.state ? (<Recipe recipe={this.state.currentRecipe} className={styles.newRecipe} />): null
             }
 
 

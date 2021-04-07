@@ -1,4 +1,9 @@
-.Box{
+.pageContainer {
+  position: relative;
+  min-height: 100vh;
+}
+
+.Box {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -6,33 +11,79 @@
   margin: 0 auto;
 }
 
-.descriptionPageHome{
+.descriptionPageHome {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.carouselContainer{
+.carouselContainerMission {
   display: flex;
+  justify-content: center;
+  padding-top: 3.88rem;
+}
+
+.innerCarousel {
+  height: 500px;
+  width: 100%;
+}
+
+.recipeOptions {
+  padding-top: 4rem;
+  border: 5px solid rgb(211, 247, 211);
+  background: rgb(252, 229, 208);
+  border-radius: 15px;
+  height: 250px;
+  width: 300px;
   justify-content: center;
 }
 
-.recipeOptions{
-  border: 5px solid lightgreen;
-  border-radius: 15px;
-  height: 180px;
-  width: 300px;
-  justify-content: flex-start;
-  flex-direction: column;
-}
-
-.recipeButton{
+.recipeButton {
   display: flex;
   margin: 0 auto;
 }
 
-.newRecipe{
+.newRecipe {
   display: flex;
   flex-direction: row;
+}
 
+.headerContainer {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  overflow: hidden;
+  z-index: 1;
+  width: 100%;
+  margin: auto;
+  top: 0;
+  opacity: 0.9;
+  background: rgb(240, 161, 138);
+  height: 70px;
+}
+
+.footerContainer {
+  background-color: #2da77d;
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  bottom: 0px;
+}
+
+.leftHeader {
+  justify-content: flex-start;
+}
+
+.rightHeader {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.imageHead {
+  height: 90px;
 }

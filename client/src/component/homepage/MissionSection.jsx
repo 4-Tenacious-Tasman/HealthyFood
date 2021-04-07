@@ -10,15 +10,17 @@ import styles from './Homepage.module.css';
 class MissionSection extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+
+    };
   }
 
   render() {
     return (
       <div>
-        <div className={styles.carouselContainer} >
-          <Carousel style={{width: "1000px"}}>
-            <Carousel.Item style={{ height: "500px", width: "1001px" }}>
+        <div className={styles.carouselContainerMission} >
+          <Carousel style={{width: "100%"}}>
+            <Carousel.Item className={styles.innerCarousel}>
               <img
                 style={{ height: "500px", borderRadius: "5px" }}
                 className="d-block w-100"

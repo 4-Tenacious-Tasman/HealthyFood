@@ -149,7 +149,7 @@ class UserProfile extends React.Component {
     return (
       <div className={styles.test2} >
         {this.state.PreferencesBool ? <Preferences close={this.updatePreferences} submitPreferences={this.submitPreferences} /> : null}
-        <div className={`${styles.photoContainer} container mt-5 d-flex`} >
+
           <div className={`${styles.userinfo} card p-3`}>
             <img src='https://myspace.com/common/images/user.png' className={`${styles.UserPhoto} rounded`} width="30%" />
             <br></br>
@@ -158,8 +158,9 @@ class UserProfile extends React.Component {
             <button className={styles.Preferences} onClick={(event) => { event.preventDefault(); this.updatePreferences() }} >Edit Profile</button>
           </div>
           <Monthly CalendarChange={this.CalendarChange} updateDate={this.updateDate} />
-          {this.state.MealPlan ? <MealPlan date={this.state.date} newPlan={this.newPlan} dailyMealPlans={this.state.dailyMealPlans} changePlan={this.changePlan} /> : null}
-        </div>
+
+          {this.state.MealPlan ? <MealPlan date={this.state.date} newPlan={this.newPlan} dailyMealPlans={this.state.dailyMealPlans} changePlan={this.changePlan} /> : <div className={` ${styles.MealPlanContainer} card p-3`}></div>}
+
 
       </div>
     )

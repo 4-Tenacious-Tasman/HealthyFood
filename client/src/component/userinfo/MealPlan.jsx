@@ -18,6 +18,7 @@ class MealPlan extends React.Component {
 
 
   render() {
+    console.log(this.props)
     const meal = this.props.dailyMealPlans.filter(meal => meal.date.includes(this.props.date));
     if (meal.length > 0 && !this.state.updated) {
       this.setState({
@@ -25,6 +26,7 @@ class MealPlan extends React.Component {
         updated: true
       });
     }
+
     return (
 
       <>

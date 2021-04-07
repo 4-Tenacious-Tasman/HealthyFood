@@ -7,11 +7,6 @@ import familyFarm  from "../../../public/images/familyfarm.png";
 import veggies from "../../../public/images/localveggies.png";
 import styled from 'styled-components';
 
-const Subscribe = styled.button`
-  border-radius: 15px;
-  background: salmon;
-`;
-
 
 class MissionSection extends React.Component {
   constructor(props) {
@@ -23,10 +18,10 @@ class MissionSection extends React.Component {
     return (
       <div>
         <div className="container-fluid" style={{display: "flex", justifyContent: "center"}} >
-          <Carousel style={{width: "499px"}}>
-            <Carousel.Item style={{ height: "300px", width: "500px" }}>
+          <Carousel style={{width: "1000px"}}>
+            <Carousel.Item style={{ height: "500px", width: "1001px" }}>
               <img
-                style={{ height: "300px", borderRadius: "5px" }}
+                style={{ height: "500px", borderRadius: "5px" }}
                 className="d-block w-100"
                 src={veggies}
               />
@@ -36,9 +31,9 @@ class MissionSection extends React.Component {
 
             </Carousel.Item>
 
-            <Carousel.Item style={{ height: "300px", width: "500px" }}>
+            <Carousel.Item style={{ height: "500px", width: "1001px" }}>
             <img
-                style={{ height: "300px", borderRadius: "5px" }}
+                style={{ height: "500px", borderRadius: "5px" }}
                 className="d-block w-100"
                 src={blueberry}
               />
@@ -49,9 +44,9 @@ class MissionSection extends React.Component {
 
             </Carousel.Item>
 
-            <Carousel.Item style={{ height: "300px", width: "500px" }}>
+            <Carousel.Item style={{ height: "500px", width: "1001px" }}>
             <img
-                style={{ height: "300px" }}
+                style={{ height: "500px" }}
                 className="d-block w-100"
                 src={cows}
               />
@@ -63,14 +58,13 @@ class MissionSection extends React.Component {
             </Carousel.Item>
 
 
-            <Carousel.Item style={{ height: "300px", width: "500px" }}>
+            <Carousel.Item style={{ height: "500px", width: "1001px" }}>
               <img
-                style={{ height: "300px" }}
+                style={{ height: "500px" }}
                 className="d-block w-100"
                 src={familyFarm}
               />
               <Carousel.Caption>
-                <Subscribe>Subscribe today!</Subscribe>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>

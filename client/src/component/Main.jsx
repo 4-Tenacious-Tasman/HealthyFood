@@ -6,6 +6,7 @@ import UserProfile from './userinfo/UserProfile.jsx';
 import RecipeGen from './homepage/RecipeGen.jsx';
 import Login from './login/Login.jsx';
 import { useAuth0 } from "@auth0/auth0-react";
+import Navigation from './homepage/Navigation.jsx';
 
  const Main = () => {
 
@@ -13,7 +14,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 
   return (
     <Router>
+      <Navigation />
       <Switch>
+        <Route path='/UserProfileA' component={UserProfile} />
         <Route path='/marketplace' component={FarmersMarket}></Route>
         <Route path='/userprofile' component={UserProfile}>{isAuthenticated ? <Redirect to='/userprofile' /> : <Redirect to='/login' />}</Route>
         <Route path='/login' component={Login}></Route>
@@ -22,6 +25,7 @@ import { useAuth0 } from "@auth0/auth0-react";
       </Switch>
     </Router>
   )
+
 };
 
 export default Main;

@@ -1,6 +1,11 @@
 import React from 'react';
 import Main from './Main.jsx';
+import { NavLink, Switch, Route } from 'react-router-dom';
+import styled from 'styled-components';
+import Logo from "../../public/images/HealthyFoodLogo.jpeg";
 import Navigation from './homepage/Navigation.jsx';
+
+
 
 class App extends React.Component {
   constructor() {
@@ -9,12 +14,20 @@ class App extends React.Component {
     }
   }
 
-
   render() {
     return(
       <div className='app-container'>
-        {/* <Navigation /> */}
         <Main />
+
+        <footer style={{backgroundColor: "#2da77d", display: "flex", justifyContent: "space-evenly", height: "50px", position: "fixed", width: "100%", left: "0", bottom: "0"}}>
+            <p>CA privacy info</p>
+            <p>Careers</p>
+            <p>FAQ</p>
+            <p>contact us</p>
+            <p>about us</p>
+            <p>HealthyFood LLC 2021</p>
+        </footer>
+
       </div>
     )
   }

@@ -19,17 +19,17 @@ class HeroSection extends React.Component {
     return (
       <div>
         <div className="container-fluid">
-          <div className="row-title" style={{ marginBottom: "20px" }}>
-            <div className="col-sm-12 btn btn-warning">
+          <div className="row-title" style={{ marginBottom: "20px", marginLeft: "20%", marginRight: "20%", marginTop: "20px" }}>
+            <div style={{border: "5px #2da77d solid", background: "orange", textAlign: "center"}}>
               Meet Your Local Farmers
             </div>
           </div>
         </div>
-        <div className="container-fluid">
-          <Carousel>
-            <Carousel.Item style={{ height: "300px", width: "500px" }}>
+        <div className="container-fluid" style={{display: "flex", justifyContent: "center"}}>
+          <Carousel style={{width: "499px"}}>
+            <Carousel.Item style={{ height: "300px", width: "500px"  }}>
               <img
-                style={{ height: "300px" }}
+                style={{ height: "300px", borderRadius: "5px" }}
                 className="d-block w-100"
                 src={Ashley}
               />
@@ -41,7 +41,7 @@ class HeroSection extends React.Component {
 
             <Carousel.Item style={{ height: "300px", width: "500px" }}>
               <img
-                style={{ height: "300px" }}
+                style={{ height: "300px", borderRadius: "5px" }}
                 className="d-block w-100"
                 src={Olu}
               />
@@ -51,9 +51,9 @@ class HeroSection extends React.Component {
               </Carousel.Caption>
             </Carousel.Item>
 
-            <Carousel.Item style={{ height: "300px", width: "500px" }}>
+            <Carousel.Item style={{ height: "300px", width: "500px"  }}>
               <img
-                style={{ height: "300px" }}
+                style={{ height: "300px", borderRadius: "5px" }}
                 className="d-block w-100"
                 src={John}
               />
@@ -63,9 +63,9 @@ class HeroSection extends React.Component {
               </Carousel.Caption>
             </Carousel.Item>
 
-            <Carousel.Item style={{height: "300px", width: "500px"}}>
+            <Carousel.Item style={{height: "300px", width: "500px" }}>
               <img
-                style={{ height: "300px" }}
+                style={{ height: "300px", borderRadius: "5px" }}
                 className="d-block w-100"
                 src={Dan}
               />

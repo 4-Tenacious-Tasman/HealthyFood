@@ -28,11 +28,20 @@ class RecipeGen extends React.Component {
     axios.get(`https://api.spoonacular.com/recipes/random?number=1&tags=${cuisune},${diet},${time}&apiKey=46a2c8efa3664777a9f310510cfe7477`)
     .then(response => {
       console.log(response.data.recipes.length)
-        this.setState({
+      if(response.data.recipes.length > 0) {
+               this.setState({
           sent: this.state.sent + 1,
           currentRecipe: response.data,
           showRecipe: true,
+          noResponse: false,
         })
+      } else {
+        this.setState({
+          showRecipe: false,
+          noResponse: true,
+        })
+      }
+
     })
     .catch(err => {
       console.log(err);
@@ -121,9 +130,9 @@ class RecipeGen extends React.Component {
             <button className={styles.recipeButton} onClick={this.getRecipe}>Get Recipe</button>
 
           </div>
-            {this.state ? (<Recipe recipe={this.state.currentRecipe}  />): null
+            {this.state.showRecipe ? (<Recipe recipe={this.state.currentRecipe}  />): null
             }
-
+            {this.state.noResponse ? <p style={{textAlign: "center"}}>No results found, try searching again!</p> : null}
 
       </div>
     );

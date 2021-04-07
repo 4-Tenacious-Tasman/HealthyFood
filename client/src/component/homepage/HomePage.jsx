@@ -37,9 +37,9 @@ class HomePage extends React.Component {
             <div className={styles.Box}>
                 <div>
                   <h2>Recipe Generator</h2>
-                  <p>We love spontaneity, and what better way to do something new then by using our free recipe generator to make a meal for anytime of the day.</p>
+                  <p>We love spontaneity, and what better way to do something new then by using our free recipe generator to make a meal for anytime of the day!</p>
                 </div>
-                <img src={Recipe}></img> 
+                <img src={Recipe}></img>
             </div>
 
             <div className={styles.Box}>

@@ -1,12 +1,12 @@
 .photoContainer{
-  position: fixed;
-  width: 25%;
-  height: 30%;
-
-  right: 60%
+  right: 10px;
+  top: 10%;
+  position: relative;
+  width: 100%;
+  height: 40%;
 }
 .userinfo{
-  width: 100%;
+  width: 527px;
 }
 .Preferences{
   width: 30%;
@@ -14,31 +14,20 @@
 .UserPhoto{
   display: inline;
 }
-.GenerateMeal{
-  position: fixed;
-  left: 50%;
-  width: 30%;
-  top: 15%;
-  height: 30%;
-}
-.GenerateMealBTN{
-  position: fixed;
-  width: 10%;
-  bottom: 56%;
-  right: 30%;
-}
+
+
 .weeklyCalendar{
-  position: fixed;
-  bottom: 30%;
-  width: 50%;
-  left: 20%;
-  height: 200px;
-  background-color:;
+  position: relative;
+  left: 10px;
+
+}
+.weeklyMeals{
+  font-size: larger;
 }
 
 .test{
   padding: 100px;
-  background-color:grey;
+  background-color: #095256;
 }
 .modalBackground{
   position: fixed;
@@ -98,9 +87,21 @@
 .FirstName{
   position: fixed;
   left:40%;
-
 }
 .LastName{
   position: fixed;
   left:50%;
+}
+.test2{
+  display: flex;
+  height: 900px;
+  width: 95%;
+  margin: auto;
+  padding: 20px;
+  background-color:#c4ebc8;
+}
+.MealPlanContainer{
+  position: relative;
+  left: 30px;
+  width: 500px;
 }

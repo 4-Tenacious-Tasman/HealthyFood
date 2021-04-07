@@ -6,7 +6,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      page: '',
+      page: ''
     }
     this.changePage = this.changePage.bind(this);
   }

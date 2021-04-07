@@ -1,11 +1,11 @@
 import React from 'react';
+import axios from 'axios';
 import styles from './Userinfo.module.css';
 
 class MealPlan extends React.Component {
   constructor(props) {
     super(props);
     this.state = {}
-
   }
 
   render() {
@@ -28,6 +28,7 @@ class MealPlan extends React.Component {
           </tr>
         </tbody>
       </table>
+      <button onClick={this.props.newPlan}>Generate New Meal Plan</button>
     </div>
     )
   }

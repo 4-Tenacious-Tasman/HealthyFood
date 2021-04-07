@@ -1,17 +1,18 @@
 import React from 'react';
 import axios from 'axios';
-import Preferences from './UserPreferences.jsx'
+// import { useAuth0 } from "@auth0/auth0-react";
+import Preferences from './UserPreferences.jsx';
 import styles from './Userinfo.module.css';
-import MealPlan from './MealPlan.jsx'
-import Monthly from './Monthly.jsx'
+import MealPlan from './MealPlan.jsx';
+import Monthly from './Monthly.jsx';
 
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       user: {
-        id: 3,
-        email: 'hahaha@gmail.com',
+        id: 2,
+        email: 'docs@ucsf.edu',
         first_name: '',
         last_name: '',
         age: null,
@@ -19,23 +20,63 @@ class UserProfile extends React.Component {
           target_calories: null,
           diet: null,
           exclude: null
-        }
+        },
+        date: ''
       },
       PreferencesBool: false,
-      MealPlan: false
-
-
+      MealPlan: false,
+      dailyMealPlans: []
     }
     this.updatePreferences = this.updatePreferences.bind(this);
     this.submitPreferences = this.submitPreferences.bind(this);
-    this.CalendarChange = this.CalendarChange.bind(this)
+    this.CalendarChange = this.CalendarChange.bind(this);
+    this.updateDate = this.updateDate.bind(this);
+    this.newPlan = this.newPlan.bind(this);
   }
 
-  CalendarChange(){
+  componentDidMount() {
+    const { id } = this.state.user;
+    axios.get('/user', { params: { id } })
+      .then(result => {
+        console.log(result.data);
+      })
+      .catch(err => {
+        throw err;
+      });
+  }
+
+  newPlan() {
+    const { date, user } = this.state;
+    axios.post('/newPlan', {
+      date,
+      id: user.id,
+      target_calories: user.preferences.target_calories,
+      diet: user.preferences.diet,
+      exclude: user.preferences.exclude
+    })
+      .then(res => {
+        const { data } = res;
+        console.log(data);
+        this.setState({
+          dailyMealPlans: data
+        });
+      })
+      .catch(err => {
+        throw err;
+      });
+  }
+
+  CalendarChange(date) {
     let modal = !this.state.MealPlan;
+    // if (date !== this.state.date) {
     this.setState({
       MealPlan: modal
-    })
+    });
+    // }
+  }
+
+  updateDate(date) {
+    this.setState({ date });
   }
 
   updatePreferences() {
@@ -47,19 +88,18 @@ class UserProfile extends React.Component {
 
   submitPreferences(usr) {
     const { first_name, last_name, age, target_calories, diet, exclude } = usr;
+    const { id } = this.state.user;
     const excludeString = exclude.join();
-    const email = this.state.user.email;
-    axios.post('/signup', { first_name, last_name, email, age, target_calories, diet, exclude: excludeString })
+    axios.put('/updatePreferences', { id, first_name, last_name, age, target_calories, diet, exclude: excludeString })
       .then(response => {
-        const { data } = response;
+        const { id, first_name, last_name, email, age, target_calories, diet, exclude } = response.data;
         this.setState({
-          [this.state.user.first_name]: data.first_name,
-          [this.state.user.last_name]: data.last_name,
-          [this.state.user.age]: data.age,
-          [this.state.user.preferences]: {
-            target_calories: data.target_calories,
-            diet: data.diet,
-            exclude: data.exclude
+          user: {
+            id, first_name, last_name, email, age, preferences: {
+              target_calories,
+              diet,
+              exclude
+            }
           }
         });
       })
@@ -69,6 +109,7 @@ class UserProfile extends React.Component {
   }
 
   render() {
+    console.log(this.state.user);
     return (
       <div className={styles.test2} >
         {this.state.PreferencesBool ? <Preferences close={this.updatePreferences} submitPreferences={this.submitPreferences} /> : null}
@@ -80,8 +121,8 @@ class UserProfile extends React.Component {
             <br></br>
             <button className={styles.Preferences} onClick={(event) => { event.preventDefault(); this.updatePreferences() }} >Edit Profile</button>
           </div>
-          <Monthly CalendarChange={this.CalendarChange}/>
-         {this.state.MealPlan? <MealPlan />  : null}
+          <Monthly CalendarChange={this.CalendarChange} updateDate={this.updateDate} />
+          {this.state.MealPlan ? <MealPlan date={this.state.date} newPlan={this.newPlan} /> : null}
         </div>
 
       </div>

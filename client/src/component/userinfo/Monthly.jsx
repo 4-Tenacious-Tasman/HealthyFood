@@ -7,28 +7,29 @@ import 'react-calendar/dist/Calendar.css';
 class Monthly extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
-    this.test = this.test.bind(this);
+    this.state = {
+    }
+    this.clickDate = this.clickDate.bind(this);
     this.convert = this.convert.bind(this)
   }
-convert(str) {
+  convert(str) {
     var date = new Date(str),
       mnth = ("0" + (date.getMonth() + 1)).slice(-2),
       day = ("0" + date.getDate()).slice(-2);
     return [date.getFullYear(), mnth, day].join("-");
   }
 
+  clickDate(value) {
+    const date = this.convert(value);
+    this.props.updateDate(date);
+    this.props.CalendarChange(date);
+  }
 
-  test(value, event){
-    this.props.CalendarChange()
-    console.log(this.convert(value))
-}
-render(){
-  console.log(this.props)
- return(
-  <Calendar onChange={this.test} className={`${styles.weeklyCalendar}`}/>
- )
-}
+  render() {
+    return (
+      <Calendar onChange={this.clickDate} className={`${styles.weeklyCalendar}`} />
+    )
+  }
 }
 
 export default Monthly

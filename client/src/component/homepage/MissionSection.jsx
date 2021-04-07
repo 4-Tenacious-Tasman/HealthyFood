@@ -7,11 +7,6 @@ import familyFarm  from "../../../public/images/familyfarm.png";
 import veggies from "../../../public/images/localveggies.png";
 import styled from 'styled-components';
 
-const Subscribe = styled.button`
-  border-radius: 15px;
-  background: orange;
-`;
-
 
 class MissionSection extends React.Component {
   constructor(props) {
@@ -70,7 +65,6 @@ class MissionSection extends React.Component {
                 src={familyFarm}
               />
               <Carousel.Caption>
-                <Subscribe>Subscribe today!</Subscribe>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>

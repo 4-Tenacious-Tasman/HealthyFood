@@ -7,14 +7,16 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 500px;
+  width: 60vw;
   margin: 0 auto;
+  justify-content: space-evenly;
 }
 
 .descriptionPageHome {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  margin: 0 auto;
+  width: 60%;
 }
 
 .carouselContainerMission {
@@ -24,9 +26,8 @@
 }
 
 .innerCarousel {
-  height: 100px;
-  width: 100px;
-  object-fit: contain;
+  height: 500px;
+  width: 100%;
 }
 
 .recipeOptions {
@@ -113,3 +114,13 @@
   text-align: left;
 }
 
+.farmerCarousel{
+  height: 500px;
+  width: 60vw;
+}
+
+.farmerImage{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

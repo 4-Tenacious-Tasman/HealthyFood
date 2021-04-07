@@ -5,6 +5,7 @@ import Ashley from "../../../public/images/Farmer-Ashley.jpeg";
 import Dan from "../../../public/images/Farmer-dan.jpeg";
 import John from "../../../public/images/Farmer-John-.jpeg";
 import Olu from "../../../public/images/FarmerOlu.jpeg";
+import styles from './Homepage.module.css';
 
 
 class HeroSection extends React.Component {
@@ -25,11 +26,11 @@ class HeroSection extends React.Component {
             </div>
           </div>
         </div>
-        <div className="container-fluid" style={{display: "flex", justifyContent: "center"}}>
-          <Carousel style={{width: "499px"}}>
-            <Carousel.Item style={{ height: "300px", width: "500px"  }}>
+        <div className="container-fluid" style={{display: "flex", justifyContent: "center", width: "1000px"}}>
+          <Carousel >
+            <Carousel.Item className={styles.farmerCarousel} >
               <img
-                style={{ height: "300px", borderRadius: "5px" }}
+                style={{ height: "500px", borderRadius: "5px", width: "100%" }}
                 className="d-block w-100"
                 src={Ashley}
               />
@@ -39,9 +40,9 @@ class HeroSection extends React.Component {
               </Carousel.Caption>
             </Carousel.Item>
 
-            <Carousel.Item style={{ height: "300px", width: "500px" }}>
+            <Carousel.Item className={styles.farmerCarousel}>
               <img
-                style={{ height: "300px", borderRadius: "5px" }}
+                style={{ height: "500px", borderRadius: "5px" }}
                 className="d-block w-100"
                 src={Olu}
               />
@@ -51,9 +52,9 @@ class HeroSection extends React.Component {
               </Carousel.Caption>
             </Carousel.Item>
 
-            <Carousel.Item style={{ height: "300px", width: "500px"  }}>
+            <Carousel.Item className={styles.farmerCarousel}>
               <img
-                style={{ height: "300px", borderRadius: "5px" }}
+                style={{ height: "500px", borderRadius: "5px" }}
                 className="d-block w-100"
                 src={John}
               />
@@ -63,9 +64,9 @@ class HeroSection extends React.Component {
               </Carousel.Caption>
             </Carousel.Item>
 
-            <Carousel.Item style={{height: "300px", width: "500px" }}>
+            <Carousel.Item className={styles.farmerCarousel}>
               <img
-                style={{ height: "300px", borderRadius: "5px" }}
+                style={{ height: "500px", borderRadius: "5px" }}
                 className="d-block w-100"
                 src={Dan}
               />

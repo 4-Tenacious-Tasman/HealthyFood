@@ -141,6 +141,39 @@ const dummyData = [
     percentageProtein: 90.00,
     percentageFat: 5.00,
     percentageCarbs: 5.00
+  },
+  {
+    ingredients_id: 9635,
+    name: "ham",
+    costValue: 300.0,
+    costUnit: "US Cents",
+    image: "https://spoonacular.com/cdn/ingredients_250x250/apple.jpg",
+    aisle: "Meat",
+    percentageProtein: 90.00,
+    percentageFat: 5.00,
+    percentageCarbs: 5.00
+  },
+  {
+    ingredients_id: 9635,
+    name: "ham",
+    costValue: 300.0,
+    costUnit: "US Cents",
+    image: "https://spoonacular.com/cdn/ingredients_250x250/apple.jpg",
+    aisle: "Meat",
+    percentageProtein: 90.00,
+    percentageFat: 5.00,
+    percentageCarbs: 5.00
+  },
+  {
+    ingredients_id: 9635,
+    name: "ham",
+    costValue: 300.0,
+    costUnit: "US Cents",
+    image: "https://spoonacular.com/cdn/ingredients_250x250/apple.jpg",
+    aisle: "Meat",
+    percentageProtein: 90.00,
+    percentageFat: 5.00,
+    percentageCarbs: 5.00
   }
 ]
 

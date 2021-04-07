@@ -1,4 +1,8 @@
 .container {
   display: flex;
-  align-content: space-between;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  background-color: white;
+  padding-left: 15%;
+  padding-right: 15%;
 }

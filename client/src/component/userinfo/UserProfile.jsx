@@ -11,8 +11,8 @@ class UserProfile extends React.Component {
     super(props);
     this.state = {
       user: {
-        id: 2,
-        email: 'docs@ucsf.edu',
+        id: null,
+        email: this.props.userEmail,
         first_name: '',
         last_name: '',
         age: null,
@@ -35,14 +35,30 @@ class UserProfile extends React.Component {
   }
 
   componentDidMount() {
-    const { id } = this.state.user;
-    axios.get('/user', { params: { id } })
-      .then(result => {
-        console.log(result.data);
+    const { email } = this.state.user;
+    axios.get('/userDetails', { params: { email } })
+      .then(response => {
+        const { id, first_name, last_name, email, age, target_calories, diet, exclude } = response.data;
+        this.setState({
+          user: {
+            id, first_name, last_name, email, age, preferences: {
+              target_calories,
+              diet,
+              exclude
+            }
+          }
+        });
+        axios.get('/userPlans', { params: { id }})
+        .then(response => {
+          const { data } = response;
+          this.setState({
+            dailyMealPlans: data
+          });
+        })
       })
       .catch(err => {
         throw err;
-      });
+      })
   }
 
   newPlan() {
@@ -56,7 +72,6 @@ class UserProfile extends React.Component {
     })
       .then(res => {
         const { data } = res;
-        console.log(data);
         this.setState({
           dailyMealPlans: data
         });
@@ -109,7 +124,7 @@ class UserProfile extends React.Component {
   }
 
   render() {
-    console.log(this.state.user);
+    console.log(this.state.dailyMealPlans);
     return (
       <div className={styles.test2} >
         {this.state.PreferencesBool ? <Preferences close={this.updatePreferences} submitPreferences={this.submitPreferences} /> : null}
@@ -122,7 +137,7 @@ class UserProfile extends React.Component {
             <button className={styles.Preferences} onClick={(event) => { event.preventDefault(); this.updatePreferences() }} >Edit Profile</button>
           </div>
           <Monthly CalendarChange={this.CalendarChange} updateDate={this.updateDate} />
-          {this.state.MealPlan ? <MealPlan date={this.state.date} newPlan={this.newPlan} /> : null}
+          {this.state.MealPlan ? <MealPlan date={this.state.date} newPlan={this.newPlan} dailyMealPlans={this.state.dailyMealPlans} /> : null}
         </div>
 
       </div>

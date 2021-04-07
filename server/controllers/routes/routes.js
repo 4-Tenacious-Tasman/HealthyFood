@@ -3,7 +3,7 @@ let profile = require('../profile/profile.js')
 
 let healthyfood = express.Router();
 healthyfood.get('/userPlans',profile.userPlans )
-healthyfood.get('/user',profile.user )
+healthyfood.get('/userDetails',profile.userDetails )
 healthyfood.post('/newPlan', profile.newPlan)
 healthyfood.post('/signup',profile.signup )
 healthyfood.put('/updatePreferences',profile.updatePreferences )

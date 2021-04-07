@@ -4,9 +4,9 @@ const db = require('../../../database/index.js');
 const { mealPlan, apiKey } = require('../../config.js');
 
 module.exports = {
-  user: (req, res) => {
-    const { id } = req.query;
-    db.query('SELECT * FROM users WHERE id = $1', [id])
+  userDetails: (req, res) => {
+    const { email } = req.query;
+    db.query('SELECT * FROM users WHERE email IN ($1)', [email])
     .then(result => {
       res.json(result.rows[0]);
     })
@@ -44,7 +44,6 @@ module.exports = {
             db.query('SELECT * FROM daily_meal_plans WHERE user_id = $1;', [id])
             .then(data => {
               res.status(200).json(data.rows);
-              console.log(data.rows);
             })
           });
       })
@@ -64,7 +63,6 @@ module.exports = {
   },
   updatePreferences: (req, res) => {
     const { id, first_name, last_name, age, target_calories, diet, exclude } = req.body;
-    console.log(req.body);
     db.query('UPDATE users SET first_name = $1, last_name = $2, age = $3, target_calories = $4, diet = $5, exclude = $6 WHERE id = $7 RETURNING *;', [first_name, last_name, age, target_calories, diet, exclude, id])
       .then(data => {
         res.json(data.rows[0]);
@@ -75,7 +73,6 @@ module.exports = {
   },
   userPlans: (req, res) => {
     const { id } = req.query;
-    console.log(req.query);
     db.query('SELECT * FROM daily_meal_plans WHERE user_id = $1;', [id])
       .then(data => {
         res.json(data.rows);

@@ -22,8 +22,8 @@ class MissionSection extends React.Component {
           <Carousel style={{width: "100%"}}>
 
             <Carousel.Item className={styles.innerCarousel}>
-              <img
-                style={{ height: "500px", borderRadius: "5px" }}
+              <img style={{ height: "500px", borderRadius: "5px" }}
+
                 className="d-block w-100"
                 src={veggies}
               />

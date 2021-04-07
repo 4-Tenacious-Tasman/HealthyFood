@@ -14,6 +14,7 @@ class RecipeGen extends React.Component {
       sent: 0,
       currentRecipe: [],
       showRecipe: false,
+      noResponse: false,
     };
     this.getRecipe = this.getRecipe.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -26,7 +27,7 @@ class RecipeGen extends React.Component {
     if(this.state.sent < 5 && this.state.cuisune !== "" && this.state.diet !== "" && this.state.time !== "") {
     axios.get(`https://api.spoonacular.com/recipes/random?number=1&tags=${cuisune},${diet},${time}&apiKey=46a2c8efa3664777a9f310510cfe7477`)
     .then(response => {
-      console.log(response.data)
+      console.log(response.data.recipes.length)
         this.setState({
           sent: this.state.sent + 1,
           currentRecipe: response.data,
@@ -37,7 +38,6 @@ class RecipeGen extends React.Component {
       console.log(err);
     })
     }
-
   }
 
   handleChange(e) {
@@ -45,6 +45,12 @@ class RecipeGen extends React.Component {
     var key = e.target.name;
     this.setState({
       [key]: e.target.value
+    })
+  }
+
+  showWrong() {
+    this.setState({
+      noResponse: !this.state.noResponse,
     })
   }
 

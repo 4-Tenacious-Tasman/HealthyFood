@@ -24,28 +24,45 @@
 }
 
 .innerCarousel {
-  height: 500px;
+  height: 100%;
   width: 100%;
 }
 
 .recipeOptions {
-  padding-top: 4rem;
-  border: 5px solid rgb(211, 247, 211);
+  border: 5px solid rgb(252, 229, 208);
   background: rgb(252, 229, 208);
   border-radius: 15px;
-  height: 250px;
+  height: 200px;
   width: 300px;
   justify-content: center;
+  margin: 0 auto;
+  margin-top: 5%;
+  text-align: center;
 }
 
 .recipeButton {
   display: flex;
   margin: 0 auto;
+  margin-top: 15px;
+  background-color: rgb(236, 110, 85);
+  border-radius: 8px;
+  border: 2px solid rgb(236, 110, 85);
+  color: rgb(255, 255, 255);
 }
+.recipeButton:hover{
+  opacity: 0.5;
+}
+
 
 .newRecipe {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 100px;
+  margin-top: 20px;
 }
 
 .headerContainer {
@@ -59,8 +76,8 @@
   width: 100%;
   margin: auto;
   top: 0;
-  opacity: 0.9;
-  background: rgb(240, 161, 138);
+  opacity: 1;
+  background:  #2da77d;
   height: 70px;
 }
 
@@ -72,6 +89,7 @@
   height: 50px;
   width: 100%;
   bottom: 0px;
+  color: white;
 }
 
 .leftHeader {
@@ -86,4 +104,10 @@
 
 .imageHead {
   height: 90px;
+}
+
+.labels {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: left;
 }

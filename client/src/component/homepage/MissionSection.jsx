@@ -20,6 +20,7 @@ class MissionSection extends React.Component {
       <div>
         <div className={styles.carouselContainerMission} >
           <Carousel style={{width: "100%"}}>
+
             <Carousel.Item className={styles.innerCarousel}>
               <img
                 style={{ height: "500px", borderRadius: "5px" }}
@@ -32,7 +33,7 @@ class MissionSection extends React.Component {
 
             </Carousel.Item>
 
-            <Carousel.Item style={{ height: "500px", width: "1001px" }}>
+            <Carousel.Item className={styles.innerCarousel}>
             <img
                 style={{ height: "500px", borderRadius: "5px" }}
                 className="d-block w-100"
@@ -45,7 +46,7 @@ class MissionSection extends React.Component {
 
             </Carousel.Item>
 
-            <Carousel.Item style={{ height: "500px", width: "1001px" }}>
+            <Carousel.Item className={styles.innerCarousel}>
             <img
                 style={{ height: "500px" }}
                 className="d-block w-100"
@@ -59,13 +60,15 @@ class MissionSection extends React.Component {
             </Carousel.Item>
 
 
-            <Carousel.Item style={{ height: "500px", width: "1001px" }}>
+            <Carousel.Item className={styles.innerCarousel}>
               <img
                 style={{ height: "500px" }}
                 className="d-block w-100"
                 src={familyFarm}
               />
               <Carousel.Caption>
+                <p>Llol
+                  et us all work together to make a better future!</p>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>

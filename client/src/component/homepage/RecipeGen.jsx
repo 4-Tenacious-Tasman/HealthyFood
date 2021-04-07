@@ -50,7 +50,7 @@ class RecipeGen extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={{display: "flex", flexDirection: "column"}}>
           <div className={styles.recipeOptions}>
             <label>Choose your Recipe options:</label>
             <br />
@@ -115,7 +115,7 @@ class RecipeGen extends React.Component {
             <button className={styles.recipeButton} onClick={this.getRecipe}>Get Recipe</button>
 
           </div>
-            {this.state ? (<Recipe recipe={this.state.currentRecipe} className={styles.newRecipe} />): null
+            {this.state ? (<Recipe recipe={this.state.currentRecipe}  />): null
             }
 
 

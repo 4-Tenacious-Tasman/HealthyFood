@@ -15,6 +15,7 @@ class App extends React.Component {
       <div className='app-container'>
         {/* <Navigation /> */}
         <Main />
+        
       </div>
     )
   }

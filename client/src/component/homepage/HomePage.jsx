@@ -6,6 +6,9 @@ import { NavLink, Switch, Route } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.css";
 import Carousel from "react-bootstrap/Carousel";
 import Logo from "../../../public/images/HealthyFoodLogo.jpeg";
+import Sustain from "../../../public/images/earth.png";
+import MealPrep from "../../../public/images/mealpreplogo.png";
+import Recipe from "../../../public/images/recipelogo.png";
 
 
 
@@ -34,13 +37,21 @@ const Button = styled.button`
   height: 30px;
   margin: auto;
   margin-left: 5px;
-  border-radius: 15px;
-  background: salmon;
+  border-radius: 5px;
+  background: orange;
 
   &:hover{
     background-color: grey;
     transition: all ease 0.5s;
   }
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 500px;
+  margin: 0 auto;
 `;
 
 // const ButtonRoute = styled.button`
@@ -95,36 +106,36 @@ class HomePage extends React.Component {
           <MissionSection />
         </div>
 
-        <div className="hero-section">
+        <div className="description page" style={{display: "flex", flexDirection: "column", width: "100%"}}>
+
+            <Container className="photo + create meal plan desc">
+                <img src={MealPrep}></img>
+                <div>
+                  <h2>Customized Meal Plans</h2>
+                  <p>We make customized meal plans compiled by your preferences of diet and nutritional needs.</p>
+                </div>
+            </Container>
+
+            <Container className="create recipe + image">
+                <div>
+                  <h2>Recipe Generator</h2>
+                  <p>We love spontaneity, and what better way to do something new then by using our recipe generator to make a meal for anytime of the day.</p>
+                </div>
+                <img src={Recipe}></img>
+            </Container>
+
+            <Container className="photo + sustainability desc">
+              <img src={Sustain} style={{width: "400px"}}></img>
+                <div>
+                  <h2>Sustainability for All</h2>
+                  <p>We are a homegrown company that runs on taking care of our customers, our local farms and most important, our planet.</p>
+                </div>
+            </Container>
+
+            </div>
+
+        <div className="hero-section" style={{paddingBottom: "100px"}}>
         <HeroSection/>
-        </div>
-
-        <div className="description page" style={{display: "flex"}}>
-
-          <div className="photo + create meal plan desc">
-              <img></img>
-              <div>
-                <h2></h2>
-                <p></p>
-              </div>
-          </div>
-
-          <div className="create recipe + image">
-              <div>
-                <h2></h2>
-                <p></p>
-              </div>
-              <img></img>
-          </div>
-
-          <div className="photo + sustainability desc">
-            <img></img>
-              <div>
-                <h2></h2>
-                <p></p>
-              </div>
-          </div>
-
         </div>
 
         <footer style={{backgroundColor: "#2da77d", display: "flex", justifyContent: "space-evenly", height: "50px", position: "fixed", width: "100%", left: "0", bottom: "0"}}>
@@ -135,8 +146,6 @@ class HomePage extends React.Component {
             <p>about us</p>
             <p>HealthyFood LLC 2021</p>
         </footer>
-
-
 
       </div>
     )

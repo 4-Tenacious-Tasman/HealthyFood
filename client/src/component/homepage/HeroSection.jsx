@@ -20,7 +20,7 @@ class HeroSection extends React.Component {
       <div>
         <div className="container-fluid">
           <div className="row-title" style={{ marginBottom: "20px", marginLeft: "20%", marginRight: "20%", marginTop: "20px" }}>
-            <div>
+            <div style={{border: "5px #2da77d solid", background: "orange", textAlign: "center"}}>
               Meet Your Local Farmers
             </div>
           </div>

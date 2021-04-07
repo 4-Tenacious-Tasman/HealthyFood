@@ -1,0 +1,38 @@
+.Box{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 500px;
+  margin: 0 auto;
+}
+
+.descriptionPageHome{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.carouselContainer{
+  display: flex;
+  justify-content: center;
+}
+
+.recipeOptions{
+  border: 5px solid lightgreen;
+  border-radius: 15px;
+  height: 180px;
+  width: 300px;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.recipeButton{
+  display: flex;
+  margin: 0 auto;
+}
+
+.newRecipe{
+  display: flex;
+  flex-direction: row;
+
+}

@@ -1,30 +1,8 @@
 import React from "react";
-import styled from 'styled-components';
 import axios from 'axios';
 import Recipe from './Recipe.jsx';
+import styles from './Homepage.module.css';
 
-
-const Button = styled.button`
-  height: 30px;
-  margin: auto;
-  margin-left: 5px;
-  border-radius: 15px;
-  background: salmon;
-
-  &:hover{
-    background-color: grey;
-    transition: all ease 0.5s;
-  }
-`;
-
-const Box = styled.div`
-  border: 5px solid lightgreen;
-  border-radius: 15px;
-  height: 200px;
-  width: 250px;
-  justify-Content: flex-start;
-  flex-direction: column;
-`;
 
 class RecipeGen extends React.Component {
   constructor(props) {
@@ -77,10 +55,13 @@ class RecipeGen extends React.Component {
   render() {
     return (
       <div>
-          <Box>
+          <div className={styles.recipeOptions}>
             <label>Choose your Recipe options:</label>
+            <br />
+            <label>Cuisune: </label>
             <select name="cuisune" value={this.state.cuisune} onChange={this.handleChange}>
-              <option selected hidden>Choose here</option>
+              <option defaultValue hidden>Choose here</option>
+              <option value="">None</option>
               <option value="african">African</option>
               <option value="american">American</option>
               <option value="british">British</option>
@@ -99,7 +80,7 @@ class RecipeGen extends React.Component {
               <option value="korean">Korean</option>
               <option value="latin American">Latin American</option>
               <option value="mediterranean">Mediterranean</option>
-              <option value="mexican" defaultValue>Mexican</option>
+              <option value="mexican" >Mexican</option>
               <option value="middleEastern">Middle Eastern</option>
               <option value="southern">Southern</option>
               <option value="spanish">Spanish</option>
@@ -107,8 +88,11 @@ class RecipeGen extends React.Component {
               <option value="vietnamese">Vietnamese</option>
             </select>
 
+            <br />
+            <label>Diet: </label>
             <select name="diet" value={this.state.diet} onChange={this.handleChange}>
-              <option selected hidden>Choose here</option>
+              <option defaultValue hidden>Choose here</option>
+              <option value="">None</option>
               <option value="gluten Free">Gluten Free</option>
               <option value="ketogenic">Ketogenic</option>
               <option value="vegetarian">Vegetarian</option>
@@ -116,22 +100,26 @@ class RecipeGen extends React.Component {
               <option value="ovo-Vegetarian">Ovo-Vegetarian</option>
               <option value="vegan">Vegan</option>
               <option value="pescetarian">Pescetarian</option>
-              <option value="paleo" defaultValue>Paleo</option>
+              <option value="paleo" >Paleo</option>
               <option value="primal">Primal</option>
               <option value="whole30">Whole30</option>
             </select>
-
+            <br />
+            <label>Meal time: </label>
             <select name="time" value={this.state.time} onChange={this.handleChange}>
-              <option selected hidden>Choose here</option>
+              <option defaultValue hidden>Choose here</option>
+              <option value="">None</option>
               <option value="breakfast">Breakfast</option>
-              <option value="lunch" defaultValue>Lunch</option>
+              <option value="lunch">Lunch</option>
               <option value="dinner">Dinner</option>
               <option value="dessert">Dessert</option>
             </select>
 
-            <button onClick={this.getRecipe}>Get Recipe</button>
-          </Box>
-            {this.state.tryAgain === false ? (<Recipe recipe={this.state.currentRecipe} style={{display: "flex", flexDirection: "row"}} />): (<p>No results found, try again</p>)
+
+            <button className={styles.recipeButton} onClick={this.getRecipe}>Get Recipe</button>
+
+          </div>
+            {this.state.tryAgain === false ? (<Recipe recipe={this.state.currentRecipe} className={styles.newRecipe} />): (<p>No results found, try again</p>)
             }
 
 

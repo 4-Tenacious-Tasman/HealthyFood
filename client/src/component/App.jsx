@@ -56,9 +56,9 @@ class App extends React.Component {
             <p>CA privacy info</p>
             <p>Careers</p>
             <p>FAQ</p>
-            <p>contact us</p>
-            <p>about us</p>
-            <p>HealthyFood LLC 2021</p>
+            <p>Contact us</p>
+            <p>About us</p>
+            <p>HealthyFood inc 2021</p>
         </footer>
 
       </div>

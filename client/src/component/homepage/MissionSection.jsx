@@ -5,8 +5,7 @@ import blueberry from "../../../public/images/blueberryheart.png";
 import cows from "../../../public/images/cowsunset.png";
 import familyFarm  from "../../../public/images/familyfarm.png";
 import veggies from "../../../public/images/localveggies.png";
-import styled from 'styled-components';
-
+import styles from './Homepage.module.css';
 
 class MissionSection extends React.Component {
   constructor(props) {
@@ -17,7 +16,7 @@ class MissionSection extends React.Component {
   render() {
     return (
       <div>
-        <div className="container-fluid" style={{display: "flex", justifyContent: "center"}} >
+        <div className={styles.carouselContainer} >
           <Carousel style={{width: "1000px"}}>
             <Carousel.Item style={{ height: "500px", width: "1001px" }}>
               <img

@@ -10,15 +10,15 @@ import Navigation from './homepage/Navigation.jsx';
 
  const Main = () => {
 
-  const { isAuthenticated } = useAuth0()
+  const { user, isAuthenticated } = useAuth0()
 
   return (
     <Router>
       <Navigation />
       <Switch>
-        <Route path='/UserProfileA' component={UserProfile} />
+        <Route path='/UserProfileA' render={() => (<UserProfile isAuthenticated={isAuthenticated} userEmail={user.email} />)} />
         <Route path='/marketplace' component={FarmersMarket}></Route>
-        <Route path='/userprofile' component={UserProfile}>{isAuthenticated ? <Redirect to='/userprofile' /> : <Redirect to='/login' />}</Route>
+        <Route path='/userprofile' render={() => (<UserProfile isAuthenticated={isAuthenticated} userEmail={user.email} />)}>{isAuthenticated ? <Redirect to='/userprofile' /> : <Redirect to='/login' />}</Route>
         <Route path='/login' component={Login}></Route>
         <Route path='/RecipeGenerator' component={RecipeGen}></Route>
         <Route path='/' component={HomePage}></Route>

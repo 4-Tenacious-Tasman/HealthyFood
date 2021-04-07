@@ -7,11 +7,6 @@ import familyFarm  from "../../../public/images/familyfarm.png";
 import veggies from "../../../public/images/localveggies.png";
 import styled from 'styled-components';
 
-const Subscribe = styled.button`
-  border-radius: 15px;
-  background: salmon;
-`;
-
 
 class MissionSection extends React.Component {
   constructor(props) {
@@ -22,47 +17,54 @@ class MissionSection extends React.Component {
   render() {
     return (
       <div>
-        <div className="container-fluid" >
-          <Carousel styled={{marginLeft: "auto"}}>
-            <Carousel.Item style={{ height: "300px", width: "500px" }}>
+        <div className="container-fluid" style={{display: "flex", justifyContent: "center"}} >
+          <Carousel style={{width: "1000px"}}>
+            <Carousel.Item style={{ height: "500px", width: "1001px" }}>
               <img
-                style={{ height: "300px" }}
+                style={{ height: "500px", borderRadius: "5px" }}
                 className="d-block w-100"
                 src={veggies}
               />
+              <Carousel.Caption>
+                <p>Sourced from local farmers</p>
+              </Carousel.Caption>
 
             </Carousel.Item>
 
-            <Carousel.Item style={{ height: "300px", width: "500px" }}>
+            <Carousel.Item style={{ height: "500px", width: "1001px" }}>
             <img
-                style={{ height: "300px" }}
+                style={{ height: "500px", borderRadius: "5px" }}
                 className="d-block w-100"
                 src={blueberry}
               />
+              <Carousel.Caption>
+                <p>GMO free, organic, fresh fruits and vegetables</p>
+              </Carousel.Caption>
 
 
             </Carousel.Item>
 
-            <Carousel.Item style={{ height: "300px", width: "500px" }}>
+            <Carousel.Item style={{ height: "500px", width: "1001px" }}>
             <img
-                style={{ height: "300px" }}
+                style={{ height: "500px" }}
                 className="d-block w-100"
                 src={cows}
               />
+              <Carousel.Caption>
+                <p>Happy Cows come from HealthyFood</p>
+              </Carousel.Caption>
 
 
             </Carousel.Item>
 
 
-            <Carousel.Item style={{ height: "300px", width: "500px" }}>
+            <Carousel.Item style={{ height: "500px", width: "1001px" }}>
               <img
-                style={{ height: "300px" }}
+                style={{ height: "500px" }}
                 className="d-block w-100"
                 src={familyFarm}
               />
-
               <Carousel.Caption>
-                <Subscribe>Subscribe today!</Subscribe>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>

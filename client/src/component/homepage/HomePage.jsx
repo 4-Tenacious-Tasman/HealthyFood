@@ -2,11 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 import HeroSection from './HeroSection.jsx';
 import MissionSection from './MissionSection.jsx';
+import { NavLink, Switch, Route } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.css";
 import Logo from "../../../public/images/HealthyFoodLogo.jpeg";
+import Sustain from "../../../public/images/earth.png";
+import MealPrep from "../../../public/images/mealpreplogo.png";
+import Recipe from "../../../public/images/recipelogo.png";
+
+
 
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
+  position: static;
 `;
 
 const LeftHeader = styled.div`
@@ -16,6 +24,7 @@ const LeftHeader = styled.div`
 const RightHeader = styled.div`
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 `;
 
 
@@ -23,42 +32,46 @@ const ImageHead = styled.img`
   height: 100px;
 `;
 
-const Button = styled.button`
-  height: 30px;
-  margin: auto;
-  margin-left: 5px;
-  border-radius: 15px;
-  background: salmon;
+// const Button = styled.button`
+//   height: 30px;
+//   margin: auto;
+//   margin-left: 5px;
+//   border-radius: 5px;
+//   background: orange;
 
-  &:hover{
-    background-color: grey;
-    transition: all ease 0.5s;
-  }
+//   &:hover{
+//     background-color: grey;
+//     transition: all ease 0.5s;
+//   }
+// `;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 500px;
+  margin: 0 auto;
 `;
 
-const ButtonRoute = styled.button`
-  background: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
+// const ButtonRoute = styled.button`
+//   background: transparent;
+//   border: none;
+//   outline: none;
+//   cursor: pointer;
 
-  &:hover {
-    font-weight: bold;
-  }
-`;
+//   &:hover {
+//     font-weight: bold;
+//   }
+// `;
 
 
-const Box = styled.div`
-  border: 5px solid black;
-  border-radius: 15px;
-  height: 100px;
-  width: 250px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-`;
+// const Box = styled.div`
+//   border: 5px solid black;
+//   border-radius: 15px;
+//   height: 80px;
+//   width: 125px;
+//   justify-Content: "flex-start";
+// `;
 
 
 class HomePage extends React.Component {
@@ -72,52 +85,42 @@ class HomePage extends React.Component {
   render() {
     return (
       <div>
-        <Header className="header">
 
-          <LeftHeader className="header-left">
-            <ImageHead src={Logo}></ImageHead>
-            <ButtonRoute>Local Market</ButtonRoute>
-            <ButtonRoute>Recipe Generator</ButtonRoute>
-          </LeftHeader>
-
-          <RightHeader className="header-right">
-              <Button>Login</Button>
-              <Button>Signup</Button>
-          </RightHeader>
-
-        </Header>
-
-        <div className="mission/values">
+        <div className="mission/values" >
           <MissionSection />
-          {/* <button>Look at Subscription plans here!</button> */}
         </div>
 
+        <div className="description page" style={{display: "flex", flexDirection: "column", width: "100%"}}>
 
-        <div className="plan-box">
-          <Box>
-              <div className="top options">
+            <Container className="photo + create meal plan desc">
+                <img src={MealPrep}></img>
+                <div>
+                  <h2>Customized Meal Plans</h2>
+                  <p>We make customized meal plans compiled by your preferences of diet and nutritional needs.</p>
+                </div>
+            </Container>
 
-              </div>
+            <Container className="create recipe + image">
+                <div>
+                  <h2>Recipe Generator</h2>
+                  <p>We love spontaneity, and what better way to do something new then by using our free recipe generator to make a meal for anytime of the day.</p>
+                </div>
+                <img src={Recipe}></img>
+            </Container>
 
-              <div className="bottom options">
+            <Container className="photo + sustainability desc">
+              <img src={Sustain} style={{width: "400px"}}></img>
+                <div>
+                  <h2>Sustainability for All</h2>
+                  <p>We are a homegrown company that runs on taking care of our customers, our local farms and most important, our planet.</p>
+                </div>
+            </Container>
 
-              </div>
-          </Box>
-        </div>
+            </div>
 
-
-        <div className="hero-section">
+        <div className="hero-section" style={{paddingBottom: "100px"}}>
         <HeroSection/>
         </div>
-
-
-
-          <div>
-            <h3>footer</h3>
-          </div>
-
-
-
 
 
 

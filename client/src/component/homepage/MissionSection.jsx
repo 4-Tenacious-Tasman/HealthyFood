@@ -67,8 +67,7 @@ class MissionSection extends React.Component {
                 src={familyFarm}
               />
               <Carousel.Caption>
-                <p>Llol
-                  et us all work together to make a better future!</p>
+                <p>Let us all work together to make a better future!</p>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
@@ -77,5 +76,6 @@ class MissionSection extends React.Component {
     );
   }
 }
+
 
 export default MissionSection;

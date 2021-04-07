@@ -1,6 +1,5 @@
 import React from 'react';
 import Main from './Main.jsx';
-import Navigation from './homepage/Navigation.jsx';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Logo from "../../public/images/HealthyFoodLogo.jpeg";
@@ -45,8 +44,9 @@ class App extends React.Component {
           <NavLink exact to='/RecipeGenerator' activeStyle={{fontWeight: "bold"}} style={{margin: "5px"}}>RecipeGenerator</NavLink>
           </LeftHeader>
           <RightHeader className="header-right">
-          <NavLink exact to='/login' activeStyle={{fontWeight: "bold"}}>Login</NavLink>
-          <NavLink exact to='/userprofile' activeStyle={{fontWeight: "bold"}}>Profile</NavLink>
+          <NavLink exact to='/UserProfileA'activeStyle={{fontWeight: "bold"}} style={{margin: "5px"}}>Bypass Authentication</NavLink>
+          <NavLink exact to='/login' activeStyle={{fontWeight: "bold"}} style={{margin: "5px"}}>Login</NavLink>
+          <NavLink exact to='/userprofile' activeStyle={{fontWeight: "bold"}} style={{margin: "5px"}}>Profile</NavLink>
           </RightHeader>
         </Header>
 

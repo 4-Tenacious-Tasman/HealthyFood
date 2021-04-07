@@ -14,6 +14,7 @@ app.use(compression());
 app.use(express.static(path.join(__dirname, '../client/public')));
 
 app.use('/',routes.healthyfood)
+app.use('/*', express.static(path.join(__dirname, '../client/public')));
 
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);

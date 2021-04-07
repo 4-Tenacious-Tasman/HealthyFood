@@ -6,22 +6,27 @@ const Cart = (props) => {
   props.groceries.forEach((grocery) => {
     total += grocery.costvalue
   })
+  total = Math.round(total * 100) / 100
   var itemCount = props.groceries.length;
 
   return (
     <div className={styles.modal}>
       <div className={styles.modalmain}>
+        <div className={styles.close} onClick={props.checkout}>X</div>
         <div className={styles.yourCart}>Your Cart ({itemCount} Items)</div>
         <div>
           <div>
             {props.groceries.map((grocery , i) => {
               return (
                 <div className={styles.item} key={i}>
-                  <img className={styles.image} src={grocery.image}></img>
+                  <div className={styles.imageContainer}>
+                    <img className={styles.image} src={grocery.image}></img>
+                  </div>
                   <div className={styles.itemInfo}>
                     <div className={styles.name}>{grocery.name}</div>
                     <div className={styles.price}>Qty: 1 x ${grocery.costvalue}</div>
                   </div>
+                  <div onClick={(e) => {props.removeFromCart(grocery)}} className={styles.delete}>X</div>
                 </div>
               )
             })}

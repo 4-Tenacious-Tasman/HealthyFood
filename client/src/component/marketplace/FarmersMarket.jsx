@@ -18,6 +18,7 @@ class FarmersMarket extends React.Component {
     this.selectAisle = this.selectAisle.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.checkout = this.checkout.bind(this);
+    this.removeFromCart = this.removeFromCart.bind(this);
   }
 
   addToCart(grocery) {
@@ -28,11 +29,9 @@ class FarmersMarket extends React.Component {
 
   checkout(e) {
     e.preventDefault();
-    if (this.state.cart.length !== 0) {
-      this.setState({
-        checkout: !this.state.checkout
-      })
-    }
+    this.setState({
+      checkout: !this.state.checkout
+    })
   }
 
   selectAisle(category) {
@@ -41,10 +40,19 @@ class FarmersMarket extends React.Component {
     })
   }
 
+  removeFromCart(grocery) {
+    var cartItems = this.state.cart;
+    cartItems.forEach((item, i) => {
+      if (item.name === grocery.name) {
+        cartItems.splice(i, 1)
+      }
+    })
+    this.setState({
+      cart: cartItems
+    })
+  }
+
   componentDidMount() {
-    // this.setState({
-    //   groceries: [...DummyData]
-    // })
     axios.get('/ingredients')
     .then((res) => {
       this.setState({
@@ -54,9 +62,7 @@ class FarmersMarket extends React.Component {
   }
 
   render() {
-    console.log(this.state.groceries)
     var groceriesToRender = []
-    console.log('selected',this.state.groceries)
     if (this.state.groceries.length > 0) {
       this.state.groceries.forEach((grocery) => {
         if (grocery.aisle === this.state.selected) {
@@ -64,12 +70,13 @@ class FarmersMarket extends React.Component {
         }
       })
     }
+
     return (
       <div className={styles.background}>
         <div className={styles.cartContainer}>
           <button className={styles.cart} onClick={this.checkout}>Cart</button>
         </div>
-        {this.state.checkout ? <Cart groceries={this.state.cart}/> : null}
+        {this.state.checkout ? <Cart groceries={this.state.cart} checkout={this.checkout} removeFromCart={this.removeFromCart}/> : null}
         <AisleButtons selectAisle={this.selectAisle}/>
         <div className={styles.container}>
           <Aisle groceries={groceriesToRender} addToCart={this.addToCart}/>

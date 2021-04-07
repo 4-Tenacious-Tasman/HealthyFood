@@ -4,7 +4,7 @@ import styles from './AisleButtons.module.css'
 
 const AisleButtons = (props) => {
 
-  var aisles = ['Meat', 'Milk, Eggs, Other Dairy', 'Bakery/Bread', 'Spices & Seasonings','Produce',  'Nuts', 'Cheese', 'Dried Fruits', 'Nut butters, Jams, and Honey', 'Canned and Jarred'];
+  var aisles = ['Meat', 'Milk, Eggs, Other Dairy', 'Bakery/Bread', 'Spices and Seasonings','Produce',  'Nuts', 'Cheese', 'Dried Fruits', 'Nut butters, Jams, and Honey', 'Canned and Jarred'];
 
   return (
     <div className={styles.container}>

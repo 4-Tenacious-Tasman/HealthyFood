@@ -54,6 +54,7 @@ class FarmersMarket extends React.Component {
   }
 
   render() {
+    console.log(this.state.groceries)
     var groceriesToRender = []
     console.log('selected',this.state.groceries)
     if (this.state.groceries.length > 0) {
@@ -63,7 +64,6 @@ class FarmersMarket extends React.Component {
         }
       })
     }
-    console.log(groceriesToRender)
     return (
       <div className={styles.background}>
         <div className={styles.cartContainer}>

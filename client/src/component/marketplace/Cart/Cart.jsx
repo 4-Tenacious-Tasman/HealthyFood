@@ -4,7 +4,7 @@ import styles from './Cart.module.css'
 const Cart = (props) => {
   var total = 0;
   props.groceries.forEach((grocery) => {
-    total += grocery.costValue
+    total += grocery.costvalue
   })
   var itemCount = props.groceries.length;
 
@@ -20,7 +20,7 @@ const Cart = (props) => {
                   <img className={styles.image} src={grocery.image}></img>
                   <div className={styles.itemInfo}>
                     <div className={styles.name}>{grocery.name}</div>
-                    <div className={styles.price}>Qty: 1 x ${grocery.costValue}</div>
+                    <div className={styles.price}>Qty: 1 x ${grocery.costvalue}</div>
                   </div>
                 </div>
               )

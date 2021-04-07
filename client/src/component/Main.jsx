@@ -20,6 +20,7 @@ import { useAuth0 } from "@auth0/auth0-react";
       <Route exact path='/login' component={Login}></Route>
       <Route exact path='/profile' component={Profile}></Route>
       <Route exact path='/RecipeGenerator' component={RecipeGen}></Route>
+      <Route exact path='/UserProfileA' component={UserProfile} />
     </Switch>
   )
   };

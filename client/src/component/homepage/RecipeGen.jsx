@@ -1,29 +1,8 @@
 import React from "react";
 import styled from 'styled-components';
-import { NavLink, Switch, Route } from 'react-router-dom';
-import Logo from "../../../public/images/HealthyFoodLogo.jpeg";
 import axios from 'axios';
 import Recipe from './Recipe.jsx';
 
-const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  position: static;
-`;
-
-const ImageHead = styled.img`
-  height: 100px;
-`;
-
-const LeftHeader = styled.div`
-  justify-content: flex-start;
-`;
-
-const RightHeader = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-`;
 
 const Button = styled.button`
   height: 30px;
@@ -98,49 +77,6 @@ class RecipeGen extends React.Component {
   render() {
     return (
       <div>
-        <Header className="header">
-          <LeftHeader className="header-left">
-            <NavLink
-              src={Logo}
-              exact
-              to="/"
-              activeStyle={{ fontWeight: "bold" }}
-            >
-              {" "}
-              <ImageHead src={Logo}></ImageHead>
-            </NavLink>
-            <NavLink
-              exact
-              to="/marketplace"
-              activeStyle={{ fontWeight: "bold" }}
-              style={{margin: "5px"}}
-            >
-              Marketplace
-            </NavLink>
-            <NavLink
-              exact
-              to="/RecipeGenerator"
-              activeStyle={{ fontWeight: "bold"}}
-              style={{margin: "5px"}}
-            >
-              RecipeGenerator
-            </NavLink>
-          </LeftHeader>
-
-          <RightHeader className="header-right">
-            <NavLink
-              exact
-              to="/userprofile"
-              activeStyle={{ fontWeight: "bold" }}
-            >
-              <Button>Login/Signup</Button>
-            </NavLink>
-          </RightHeader>
-        </Header>
-
-
-
-
           <Box>
             <label>Choose your Recipe options:</label>
             <select name="cuisune" value={this.state.cuisune} onChange={this.handleChange}>

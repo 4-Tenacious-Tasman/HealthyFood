@@ -1,15 +1,18 @@
 import React from 'react';
 import axios from 'axios';
-import Preferences from './UserPreferences.jsx'
+// import { useAuth0 } from "@auth0/auth0-react";
+import Preferences from './UserPreferences.jsx';
 import styles from './Userinfo.module.css';
+import MealPlan from './MealPlan.jsx';
+import Monthly from './Monthly.jsx';
 
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       user: {
-        id: 3,
-        email: 'hahaha@gmail.com',
+        id: null,
+        email: this.props.userEmail,
         first_name: '',
         last_name: '',
         age: null,
@@ -17,14 +20,101 @@ class UserProfile extends React.Component {
           target_calories: null,
           diet: null,
           exclude: null
-        }
+        },
+        date: ''
       },
-      PreferencesBool: false
-
+      PreferencesBool: false,
+      MealPlan: false,
+      dailyMealPlans: []
     }
     this.updatePreferences = this.updatePreferences.bind(this);
     this.submitPreferences = this.submitPreferences.bind(this);
+    this.CalendarChange = this.CalendarChange.bind(this);
+    this.updateDate = this.updateDate.bind(this);
+    this.newPlan = this.newPlan.bind(this);
+    this.changePlan = this.changePlan.bind(this);
   }
+
+  componentDidMount() {
+    const { email } = this.state.user;
+    axios.get('/userDetails', { params: { email } })
+      .then(response => {
+        const { id, first_name, last_name, email, age, target_calories, diet, exclude } = response.data;
+        this.setState({
+          user: {
+            id, first_name, last_name, email, age, preferences: {
+              target_calories,
+              diet,
+              exclude
+            }
+          }
+        });
+        axios.get('/userPlans', { params: { id }})
+        .then(response => {
+          const { data } = response;
+          this.setState({
+            dailyMealPlans: data
+          });
+        })
+      })
+      .catch(err => {
+        throw err;
+      })
+  }
+
+  newPlan() {
+    const { date, user } = this.state;
+    axios.post('/newPlan', {
+      date,
+      id: user.id,
+      target_calories: user.preferences.target_calories,
+      diet: user.preferences.diet,
+      exclude: user.preferences.exclude
+    })
+      .then(res => {
+        const { data } = res;
+        this.setState({
+          dailyMealPlans: data
+        });
+      })
+      .catch(err => {
+        throw err;
+      });
+  }
+
+  changePlan(meal_id) {
+    const { user } = this.state;
+    axios.put('/changePlan', {
+      meal_id,
+      id: user.id,
+      target_calories: user.preferences.target_calories,
+      diet: user.preferences.diet,
+      exclude: user.preferences.exclude
+    })
+      .then(res => {
+        const { data } = res;
+        this.setState({
+          dailyMealPlans: data
+        });
+      })
+      .catch(err => {
+        throw err;
+      });
+  }
+
+  CalendarChange(date) {
+    let modal = !this.state.MealPlan;
+    // if (date !== this.state.date) {
+    this.setState({
+      MealPlan: modal
+    });
+    // }
+  }
+
+  updateDate(date) {
+    this.setState({ date });
+  }
+
   updatePreferences() {
     let modal = !this.state.PreferencesBool;
     this.setState({
@@ -34,19 +124,18 @@ class UserProfile extends React.Component {
 
   submitPreferences(usr) {
     const { first_name, last_name, age, target_calories, diet, exclude } = usr;
+    const { id } = this.state.user;
     const excludeString = exclude.join();
-    const email = this.state.user.email;
-    axios.post('/signup', { first_name, last_name, email, age, target_calories, diet, exclude: excludeString })
+    axios.put('/updatePreferences', { id, first_name, last_name, age, target_calories, diet, exclude: excludeString })
       .then(response => {
-        const { data } = response;
+        const { id, first_name, last_name, email, age, target_calories, diet, exclude } = response.data;
         this.setState({
-          [this.state.user.first_name]: data.first_name,
-          [this.state.user.last_name]: data.last_name,
-          [this.state.user.age]: data.age,
-          [this.state.user.preferences]: {
-            target_calories: data.target_calories,
-            diet: data.diet,
-            exclude: data.exclude
+          user: {
+            id, first_name, last_name, email, age, preferences: {
+              target_calories,
+              diet,
+              exclude
+            }
           }
         });
       })
@@ -56,67 +145,20 @@ class UserProfile extends React.Component {
   }
 
   render() {
+    console.log(this.state.dailyMealPlans);
     return (
-      <div >
+      <div className={styles.test2} >
         {this.state.PreferencesBool ? <Preferences close={this.updatePreferences} submitPreferences={this.submitPreferences} /> : null}
         <div className={`${styles.photoContainer} container mt-5 d-flex`} >
           <div className={`${styles.userinfo} card p-3`}>
             <img src='https://myspace.com/common/images/user.png' className={`${styles.UserPhoto} rounded`} width="30%" />
             <br></br>
-            <p className={styles.greeting}>Hello User</p>
+            <p className={styles.greeting}>Hello, {this.state.user.first_name}</p>
             <br></br>
             <button className={styles.Preferences} onClick={(event) => { event.preventDefault(); this.updatePreferences() }} >Edit Profile</button>
-
           </div>
-
-        </div>
-        <div className={`${styles.GenerateMeal} card p-3`}>
-          <button className={`${styles.GenerateMealBTN}`}>Generate Meal</button>
-        </div>
-
-        <div className={`${styles.weeklyCalendar} card p-3`}>
-          <table>
-            <thead>
-              <tr className={styles.test}>
-                <th scope="col" >mon</th>
-                <th scope="col">tue</th>
-                <th scope="col">wed</th>
-                <th scope="col">thur</th>
-                <th scope="col">fri</th>
-                <th scope="col">sat</th>
-                <th scope="col">sun</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className={styles.weeklyMeals}>
-                <td>Meal Mon breakfast</td>
-                <td>Meal Tus breakfast </td>
-                <td>Meal Wed breakfast</td>
-                <td>Meal thur breakfast</td>
-                <td>Meal fri breakfast</td>
-                <td>Meal sat breakfast</td>
-                <td>Meal sun breakfast</td>
-              </tr>
-              <tr>
-                <td>Meal Mon lunch</td>
-                <td>Meal Tus lunch </td>
-                <td>Meal Wed lunch</td>
-                <td>Meal thur lunch</td>
-                <td>Meal fri lunch</td>
-                <td>Meal sat lunch</td>
-                <td>Meal sun lunch</td>
-              </tr>
-              <tr>
-                <td>Meal Mon dinner</td>
-                <td>Meal Tus dinner </td>
-                <td>Meal Wed dinner</td>
-                <td>Meal thur dinner</td>
-                <td>Meal fri dinner</td>
-                <td>Meal sat dinner</td>
-                <td>Meal sun dinner</td>
-              </tr>
-            </tbody>
-          </table>
+          <Monthly CalendarChange={this.CalendarChange} updateDate={this.updateDate} />
+          {this.state.MealPlan ? <MealPlan date={this.state.date} newPlan={this.newPlan} dailyMealPlans={this.state.dailyMealPlans} changePlan={this.changePlan} /> : null}
         </div>
 
       </div>

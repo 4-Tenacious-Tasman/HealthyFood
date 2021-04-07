@@ -6,7 +6,7 @@ module.exports = {
   getAllIngredients: (req, res) => {
     db.query(`SELECT * FROM ingredients`)
       .then(data => {
-        let ingredients = new Array(data.rows);
+        let ingredients = data.rows;
           ingredients.forEach(ingredient => {
             if (ingredient.costvalue === 0) {
               ingredient.costvalue = 1;

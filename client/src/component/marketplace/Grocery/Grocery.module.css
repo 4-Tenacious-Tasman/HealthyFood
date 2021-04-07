@@ -4,6 +4,7 @@
   background-color: white;
   margin-bottom: 20px;
   width: 280px;
+  border-radius: 5px;
 }
 
 .button {
@@ -24,20 +25,30 @@
 
 .textContainer {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   height: 50px;
   font-size: 16px;
   color: black;
   justify-content: space-between;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
- .cost {
-  margin-right: 28px;
-}
-
-.name {
+.name, .cost {
   font-size: 18px;
   margin-left: 28px;
+}
+
+.imageContainer {
+  height: 200px;
+  width:280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  max-width: 200px;
+  max-height: 200px;
+  object-fit:scale-down;
 }

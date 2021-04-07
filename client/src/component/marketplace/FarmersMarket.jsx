@@ -4,6 +4,7 @@ import Aisle from './Aisle/Aisle.jsx'
 import Cart from './Cart/Cart.jsx'
 import AisleButtons from './AisleButtons/AisleButtons.jsx'
 import styles from './FarmersMarket.module.css'
+import axios from 'axios'
 
 class FarmersMarket extends React.Component {
   constructor(props) {
@@ -41,19 +42,28 @@ class FarmersMarket extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({
-      groceries: [...DummyData]
+    // this.setState({
+    //   groceries: [...DummyData]
+    // })
+    axios.get('/ingredients')
+    .then((res) => {
+      this.setState({
+        groceries: [...res.data]
+      })
     })
   }
 
   render() {
     var groceriesToRender = []
-    this.state.groceries.forEach((grocery) => {
-      if (grocery.aisle === this.state.selected) {
-        groceriesToRender.push(grocery);
-      }
-    })
-
+    console.log('selected',this.state.groceries)
+    if (this.state.groceries.length > 0) {
+      this.state.groceries.forEach((grocery) => {
+        if (grocery.aisle === this.state.selected) {
+          groceriesToRender.push(grocery);
+        }
+      })
+    }
+    console.log(groceriesToRender)
     return (
       <div className={styles.background}>
         <div className={styles.cartContainer}>

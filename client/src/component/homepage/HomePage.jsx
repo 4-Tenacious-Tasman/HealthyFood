@@ -81,12 +81,11 @@ class HomePage extends React.Component {
           <NavLink src={Logo} exact to='/' activeStyle={{fontWeight: "bold"}}> <ImageHead src={Logo}></ImageHead></NavLink>
           <NavLink exact to='/marketplace' activeStyle={{fontWeight: "bold"}} style={{margin: "5px"}}>Marketplace</NavLink>
           <NavLink exact to='/RecipeGenerator' activeStyle={{fontWeight: "bold"}} style={{margin: "5px"}}>RecipeGenerator</NavLink>
-
           </LeftHeader>
 
           <RightHeader className="header-right">
-          <NavLink exact to='/userprofile' activeStyle={{fontWeight: "bold"}}><Button>Login/Signup</Button></NavLink>
-
+          <NavLink exact to='/login' activeStyle={{fontWeight: "bold"}}>Login</NavLink>
+          <NavLink exact to='/userprofile' activeStyle={{fontWeight: "bold"}}>Profile</NavLink>
           </RightHeader>
 
         </Header>

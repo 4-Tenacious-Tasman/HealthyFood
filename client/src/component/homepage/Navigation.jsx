@@ -16,7 +16,6 @@ const Navigation = () => {
         <NavLink exact to='/RecipeGenerator' activeStyle={{fontWeight: "bold"}} style={{margin: "5px", color: "white"}}>RecipeGenerator</NavLink>
       </div>
     <div className={styles.rightHeader}>
-    <NavLink exact to='/UserProfileA'activeStyle={{fontWeight: "bold"}} style={{margin: "5px", color: "white"}}>Bypass Authentication</NavLink>
     <NavLink exact to='/login' activeStyle={{fontWeight: "bold"}} style={{margin: "5px", color: "white"}}>Login</NavLink>
     <NavLink exact to='/userprofile' activeStyle={{fontWeight: "bold"}} style={{margin: "5px", color: "white"}}>Profile</NavLink>
     </div>

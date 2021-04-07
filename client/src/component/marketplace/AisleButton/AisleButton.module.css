@@ -1,0 +1,25 @@
+.long {
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-right: 7.5px;
+  margin-left: 7.5px;
+  width: 220px;
+  text-align: center;
+  border-bottom: 5px solid white;
+}
+
+.short {
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-right: 7.5px;
+  margin-left: 7.5px;
+  width: 120px;
+  text-align: center;
+  border-bottom: 5px solid white;
+}
+
+.short:hover, .long:hover {
+  color: #2da77d;
+  border-bottom: 5px solid #2da77d;
+  cursor: pointer;
+}

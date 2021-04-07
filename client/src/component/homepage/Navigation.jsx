@@ -11,7 +11,6 @@ const Navigation = () => {
         <li><NavLink exact to='/marketplace' activeStyle={{fontWeight: "bold"}}>Marketplace</NavLink></li>
         <li><NavLink exact to='/userprofile' activeStyle={{fontWeight: "bold"}}>Profile</NavLink></li>
         <li><NavLink exact to='/login' activeStyle={{fontWeight: "bold"}}>Login</NavLink></li>
-        {/* <li><NavLink exact to='/profile' activeStyle={{fontWeight: "bold"}}>Current User</NavLink></li> */}
       </ul>
     </nav>
   )

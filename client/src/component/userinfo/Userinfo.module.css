@@ -5,13 +5,17 @@
   margin: auto;
   padding: 20px;
   background-color:#c4ebc8;
+  justify-content: center;
+  text-align: center;
+  grid-template-rows: 1fr 1fr
 
 }
 
 .userinfo{
   width: 527px;
   height: 30%;
-  left:30%;
+  left:33%;
+
 }
 .UserPhoto{
   display: inline;
@@ -19,14 +23,21 @@
 .Preferences{
   width: 30%;
 }
+.holder{
+  justify-content: center;
+  text-align: center;
+  grid-template-columns: 1fr 1fr
+
+}
 
 .weeklyCalendar{
   position: relative;
-  left: 30%;
+  left: 33%;
   height: 30%;
 }
 .weeklyMeals{
-  font-size: larger;
+
+  display: inline;
 }
 
 .test{
@@ -102,5 +113,6 @@
   left: 5%;
   width: 500px;
   height: 30%;
-  top: 40%;
-}
+
+
+  }

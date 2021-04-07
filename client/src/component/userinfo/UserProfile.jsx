@@ -32,6 +32,7 @@ class UserProfile extends React.Component {
     this.CalendarChange = this.CalendarChange.bind(this);
     this.updateDate = this.updateDate.bind(this);
     this.newPlan = this.newPlan.bind(this);
+    this.changePlan = this.changePlan.bind(this);
   }
 
   componentDidMount() {
@@ -65,6 +66,26 @@ class UserProfile extends React.Component {
     const { date, user } = this.state;
     axios.post('/newPlan', {
       date,
+      id: user.id,
+      target_calories: user.preferences.target_calories,
+      diet: user.preferences.diet,
+      exclude: user.preferences.exclude
+    })
+      .then(res => {
+        const { data } = res;
+        this.setState({
+          dailyMealPlans: data
+        });
+      })
+      .catch(err => {
+        throw err;
+      });
+  }
+
+  changePlan(meal_id) {
+    const { user } = this.state;
+    axios.put('/changePlan', {
+      meal_id,
       id: user.id,
       target_calories: user.preferences.target_calories,
       diet: user.preferences.diet,
@@ -132,12 +153,12 @@ class UserProfile extends React.Component {
           <div className={`${styles.userinfo} card p-3`}>
             <img src='https://myspace.com/common/images/user.png' className={`${styles.UserPhoto} rounded`} width="30%" />
             <br></br>
-            <p className={styles.greeting}>Hello {this.state.user.first_name}</p>
+            <p className={styles.greeting}>Hello, {this.state.user.first_name}</p>
             <br></br>
             <button className={styles.Preferences} onClick={(event) => { event.preventDefault(); this.updatePreferences() }} >Edit Profile</button>
           </div>
           <Monthly CalendarChange={this.CalendarChange} updateDate={this.updateDate} />
-          {this.state.MealPlan ? <MealPlan date={this.state.date} newPlan={this.newPlan} dailyMealPlans={this.state.dailyMealPlans} /> : null}
+          {this.state.MealPlan ? <MealPlan date={this.state.date} newPlan={this.newPlan} dailyMealPlans={this.state.dailyMealPlans} changePlan={this.changePlan} /> : null}
         </div>
 
       </div>

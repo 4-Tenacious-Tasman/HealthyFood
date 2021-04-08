@@ -17,40 +17,32 @@ class MissionSection extends React.Component {
 
   render() {
     return (
-      <Carousel style={{zIndex: "0"}}>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={blueberry}
-            alt="First slide"
-            style={{maxHeight: "80vh"}}
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={veggies}
-            alt="Second slide"
-            style={{maxHeight: "80vh"}}
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={familyFarm}
-            alt="Third slide"
-            style={{maxHeight: "80vh"}}
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={cows}
-            alt="Third slide"
-            style={{maxHeight: "80vh"}}
-          />
-        </Carousel.Item>
-      </Carousel>
+      <div>
+        <div className={styles.carouselContainerMission} >
+          <Carousel style={{width: "100%", height: "600px"}}>
+
+            <Carousel.Item className={styles.carouselImageA}>
+
+
+            </Carousel.Item>
+
+            <Carousel.Item className={styles.carouselImageB}>
+
+
+            </Carousel.Item>
+
+            <Carousel.Item className={styles.carouselImageC}>
+
+
+            </Carousel.Item>
+
+
+            <Carousel.Item className={styles.carouselImageD}>
+
+            </Carousel.Item>
+          </Carousel>
+        </div>
+      </div>
     );
   }
 }

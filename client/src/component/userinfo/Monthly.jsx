@@ -26,10 +26,16 @@ class Monthly extends React.Component {
   }
 
   render() {
+    console.log('hi', this.props.dailyMealPlans);
+    const { dailyMealPlans } = this.props;
     return (
-      <div className={styles.calendardiv} >
-      <Calendar onChange={this.clickDate} />
-      {/* {this.props.MealPlan ? <MealPlan date={this.props.date} newPlan={this.props.newPlan} changePlan={this.props.changePlan} dailyMealPlans={this.props.dailyMealPlans} /> : null} */}
+      <div className={styles.calendardiv}  >
+        <h1>Meal Plans</h1>
+        <Calendar onChange={this.clickDate} calendarType='US' tileClassName={({ date }) => {
+          if (dailyMealPlans.find(meal => meal.date.includes(this.convert(date)))) {
+            return 'mealPlan'
+          }
+        }}/>
       </div>
     )
   }

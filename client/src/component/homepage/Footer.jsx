@@ -6,12 +6,12 @@ const Footer = () => {
 
   return (
     <footer className={styles.footerContainer}>
-      <p>CA privacy info</p>
-      <p>Careers</p>
-      <NavLink exact to='/marketplace'  style={{ color: "white", fontFamily: "sans-serif"}}>Marketplace</NavLink>
-      <p>Contact us</p>
-      <p>About us</p>
-      <p>HealthyFood Inc 2021</p>
+      <p>CA PRIVACY INFO</p>
+      <p>CAREERS</p>
+      <NavLink exact to='/marketplace'  style={{ color: "white", fontFamily: "sans-serif"}}>MARKETPLACE</NavLink>
+      <p>CONTACT US</p>
+      <p>ABOUT US</p>
+      <p>HEALTHY FOOD INC 2021</p>
     </footer>
 
   )

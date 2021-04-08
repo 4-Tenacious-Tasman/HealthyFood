@@ -97,11 +97,13 @@
   margin: auto;
   align-items: center;
   text-align: center;
+
 }
 
 .footerContainer>p {
   padding-top: 1em;
   font-family: sans-serif;
+
 }
 
 .footerContainer>p:hover {
@@ -112,7 +114,9 @@
 
 
 .leftHeader {
+  display: flex;
   justify-content: flex-start;
+  align-items: center;
 }
 
 .rightHeader {
@@ -122,7 +126,9 @@
 }
 
 .imageHead {
-  height: 90px;
+  height: 90%;
+  width: 90%;
+  padding-top: 0.45em;
 }
 
 .labels {

@@ -18,7 +18,7 @@ class HeroSection extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={{maxHeight: "550px", height: "auto"}}>
         <div className="container-fluid">
           <div className="row-title" style={{ marginBottom: "20px", marginLeft: "20%", marginRight: "20%", marginTop: "20px" }}>
             <div style={{border: "5px rgb(240, 161, 138)solid", background: "rgb(240, 161, 138)", textAlign: "center", color: "white", borderRadius: "5px"}}>
@@ -26,12 +26,12 @@ class HeroSection extends React.Component {
             </div>
           </div>
         </div>
-        <div className="container-fluid" style={{display: "flex", justifyContent: "center", width: "1000px"}}>
+        <div className="container-fluid" style={{display: "flex", justifyContent: "center", height: "40vh", width: "60vw"}}>
           <Carousel >
             <Carousel.Item className={styles.farmerCarousel} >
               <img
-                style={{ height: "500px", borderRadius: "5px", width: "100%" }}
-                className="d-block w-100"
+                style={{ height: "450px", borderRadius: "5px", width: "100%" }}
+                className="d-block w-80"
                 src={Ashley}
               />
 
@@ -42,7 +42,7 @@ class HeroSection extends React.Component {
 
             <Carousel.Item className={styles.farmerCarousel}>
               <img
-                style={{ height: "500px", borderRadius: "5px" }}
+                style={{ height: "450px", borderRadius: "5px" }}
                 className="d-block w-100"
                 src={Olu}
               />
@@ -54,7 +54,7 @@ class HeroSection extends React.Component {
 
             <Carousel.Item className={styles.farmerCarousel}>
               <img
-                style={{ height: "500px", borderRadius: "5px" }}
+                style={{ height: "450px", borderRadius: "5px" }}
                 className="d-block w-100"
                 src={John}
               />
@@ -66,7 +66,7 @@ class HeroSection extends React.Component {
 
             <Carousel.Item className={styles.farmerCarousel}>
               <img
-                style={{ height: "500px", borderRadius: "5px" }}
+                style={{height: "450px", borderRadius: "5px" }}
                 className="d-block w-100"
                 src={Dan}
               />

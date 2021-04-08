@@ -4,6 +4,7 @@ import Aisle from './Aisle/Aisle.jsx'
 import Cart from './Cart/Cart.jsx'
 import AisleButtons from './AisleButtons/AisleButtons.jsx'
 import styles from './FarmersMarket.module.css'
+import OrderConfirmation from './OrderConfirmation/OrderConfirmation.jsx'
 import axios from 'axios'
 
 class FarmersMarket extends React.Component {
@@ -13,12 +14,16 @@ class FarmersMarket extends React.Component {
      groceries: [],
      selected: 'home',
      cart: [],
-     checkout: false
+     checkout: false,
+     confirmation: false
     }
     this.selectAisle = this.selectAisle.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.checkout = this.checkout.bind(this);
     this.removeFromCart = this.removeFromCart.bind(this);
+    this.showConfirmation = this.showConfirmation.bind(this);
+    this.hideConfirmation = this.hideConfirmation.bind(this);
+    this.clearCart = this.clearCart.bind(this);
   }
 
   addToCart(grocery) {
@@ -52,6 +57,30 @@ class FarmersMarket extends React.Component {
     })
   }
 
+  showConfirmation(e) {
+    e.preventDefault();
+    this.checkout(e)
+    this.clearCart(e)
+    console.log('clicked')
+    this.setState({
+      confirmation: !this.state.confirmation
+    })
+  }
+
+  clearCart(e) {
+    e.preventDefault();
+    this.setState({
+      cart: []
+    })
+  }
+
+  hideConfirmation(e) {
+    e.preventDefault();
+    this.setState({
+      confirmation: !this.state.confirmation
+    })
+  }
+
   componentDidMount() {
     axios.get('/ingredients')
     .then((res) => {
@@ -76,7 +105,8 @@ class FarmersMarket extends React.Component {
         <div className={styles.cartContainer}>
           <button className={styles.cart} onClick={this.checkout}>Cart</button>
         </div>
-        {this.state.checkout ? <Cart groceries={this.state.cart} checkout={this.checkout} removeFromCart={this.removeFromCart}/> : null}
+        {this.state.checkout ? <Cart groceries={this.state.cart} showConfirmation={this.showConfirmation} checkout={this.checkout} removeFromCart={this.removeFromCart}/> : null}
+        {this.state.confirmation ? <OrderConfirmation hideConfirmation={this.hideConfirmation}/> : null}
         <AisleButtons selectAisle={this.selectAisle}/>
         <div className={styles.container}>
           <Aisle groceries={groceriesToRender} addToCart={this.addToCart}/>

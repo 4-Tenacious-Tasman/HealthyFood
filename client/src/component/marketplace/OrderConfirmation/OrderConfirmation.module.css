@@ -1,0 +1,66 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: block;
+}
+
+.modalmain {
+  position:fixed;
+  background: white;
+  width: 25%;
+  height: 32%;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  max-height: 100vh;
+  overflow-y: auto;
+  font-family: Helvetica;
+  font-size: 16px;
+  padding-left: 50px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  border-radius: 4px;
+}
+
+.textContainer {
+  padding-right: 30px;
+  padding-top: 30px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageContainer {
+  height: 70px;
+  width:70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 70px;
+  height: 70px;
+}
+
+.thankYou {
+  font-size: 24px;
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+.confirmation {
+  font-size: 13px;
+  text-align: center;
+}
+
+.close {
+  cursor: pointer;
+  float: right;
+}

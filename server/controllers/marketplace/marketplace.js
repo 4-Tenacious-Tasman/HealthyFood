@@ -11,7 +11,7 @@ module.exports = {
             if (ingredient.costvalue === 0) {
               ingredient.costvalue = 1;
             } else {
-              ingredient.costvalue = ingredient.costvalue/100;
+              ingredient.costvalue = (ingredient.costvalue/100).toFixed(2);
             }
             // return ingredient;
         })

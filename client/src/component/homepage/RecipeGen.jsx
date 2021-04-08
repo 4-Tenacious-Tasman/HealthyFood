@@ -69,7 +69,7 @@ class RecipeGen extends React.Component {
           <div className={styles.recipeOptions}>
             <label>Choose your Recipe options:</label>
             <br />
-            <label>Cuisune: </label>
+            <label>Cuisine: </label>
             <select name="cuisine" value={this.state.cuisine} onChange={this.handleChange}>
               <option defaultValue hidden>Choose here</option>
               <option value="">None</option>

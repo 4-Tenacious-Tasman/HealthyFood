@@ -17,62 +17,40 @@ class MissionSection extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className={styles.carouselContainerMission} >
-          <Carousel style={{width: "100%"}}>
-
-            <Carousel.Item className={styles.innerCarousel}>
-              <img style={{ height: "500px", borderRadius: "5px" }}
-
-                className="d-block w-100"
-                src={veggies}
-              />
-              <Carousel.Caption>
-                <p>Sourced from local farmers</p>
-              </Carousel.Caption>
-
-            </Carousel.Item>
-
-            <Carousel.Item className={styles.innerCarousel}>
-            <img
-                style={{ height: "500px", borderRadius: "5px" }}
-                className="d-block w-100"
-                src={blueberry}
-              />
-              <Carousel.Caption>
-                <p>GMO free, organic, fresh fruits and vegetables</p>
-              </Carousel.Caption>
-
-
-            </Carousel.Item>
-
-            <Carousel.Item className={styles.innerCarousel}>
-            <img
-                style={{ height: "500px" }}
-                className="d-block w-100"
-                src={cows}
-              />
-              <Carousel.Caption>
-                <p>Happy Cows come from HealthyFood</p>
-              </Carousel.Caption>
-
-
-            </Carousel.Item>
-
-
-            <Carousel.Item className={styles.innerCarousel}>
-              <img
-                style={{ height: "500px" }}
-                className="d-block w-100"
-                src={familyFarm}
-              />
-              <Carousel.Caption>
-                <p>Let us all work together to make a better future!</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
-        </div>
-      </div>
+      <Carousel>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={blueberry}
+            alt="First slide"
+            style={{maxHeight: "80vh"}}
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={veggies}
+            alt="Second slide"
+            style={{maxHeight: "80vh"}}
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={familyFarm}
+            alt="Third slide"
+            style={{maxHeight: "80vh"}}
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={cows}
+            alt="Third slide"
+            style={{maxHeight: "80vh"}}
+          />
+        </Carousel.Item>
+      </Carousel>
     );
   }
 }

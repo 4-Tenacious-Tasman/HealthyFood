@@ -12,12 +12,12 @@ const Navigation = () => {
     <div className={styles.headerContainer}>
       <div className={styles.leftHeader}>
         <NavLink src={Image} exact to='/' activeStyle={{fontWeight: "bold"}}> <img className={styles.imageHead} src={Image}></img></NavLink>
-        <NavLink exact to='/marketplace' activeStyle={{fontWeight: "bold"}} style={{margin: "5px", color: "white"}}>Marketplace</NavLink>
-        <NavLink exact to='/RecipeGenerator' activeStyle={{fontWeight: "bold"}} style={{margin: "5px", color: "white"}}>RecipeGenerator</NavLink>
+        <NavLink exact to='/marketplace' activeStyle={{fontWeight: "bold"}} style={{margin: "25px", color: "white", fontFamily: "sans-serif"}}>Marketplace</NavLink>
+        <NavLink exact to='/RecipeGenerator' activeStyle={{fontWeight: "bold"}} style={{margin: "25px", color: "white", fontFamily: "sans-serif"}}>RecipeGenerator</NavLink>
       </div>
     <div className={styles.rightHeader}>
-    <NavLink exact to='/login' activeStyle={{fontWeight: "bold"}} style={{margin: "5px", color: "white"}}>Login</NavLink>
-    <NavLink exact to='/userprofile' activeStyle={{fontWeight: "bold"}} style={{margin: "5px", color: "white"}}>Profile</NavLink>
+    <NavLink exact to='/login' activeStyle={{fontWeight: "bold"}} style={{margin: "25px", color: "white", fontFamily: "sans-serif"}}>Login</NavLink>
+    <NavLink exact to='/userprofile' activeStyle={{fontWeight: "bold"}} style={{margin: "25px", color: "white", fontFamily: "sans-serif"}}>Profile</NavLink>
     </div>
   </div>
   )

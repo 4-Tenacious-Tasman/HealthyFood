@@ -18,16 +18,6 @@ class App extends React.Component {
     return(
       <div className={styles.pageContainer}>
         <Main />
-
-        <footer className={styles.footerContainer}>
-            <p>CA privacy info</p>
-            <p>Careers</p>
-            <p>FAQ</p>
-            <p>Contact us</p>
-            <p>About us</p>
-            <p>HealthyFood Inc 2021</p>
-        </footer>
-
       </div>
     )
   }

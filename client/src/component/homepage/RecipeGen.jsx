@@ -8,7 +8,7 @@ class RecipeGen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cuisune: '',
+      cuisine: '',
       diet: '',
       time: '',
       sent: 0,
@@ -22,10 +22,10 @@ class RecipeGen extends React.Component {
 
   getRecipe() {
     const diet = this.state.diet !== '' ? this.state.diet : null;
-    const cuisune = this.state.cuisune !== '' ? this.state.cuisune : null;
-    const time = this.state.time !== '' ? this.state.cuisune : null;
-    if(this.state.sent < 5 && this.state.cuisune !== "" && this.state.diet !== "" && this.state.time !== "") {
-    axios.get(`https://api.spoonacular.com/recipes/random?number=1&tags=${cuisune},${diet},${time}&apiKey=46a2c8efa3664777a9f310510cfe7477`)
+    const cuisine = this.state.cuisine !== '' ? this.state.cuisine : null;
+    const time = this.state.time !== '' ? this.state.cuisine : null;
+    if(this.state.sent < 5 && this.state.cuisine !== "" && this.state.diet !== "" && this.state.time !== "") {
+    axios.get(`https://api.spoonacular.com/recipes/random?number=1&tags=${cuisine},${diet},${time}&apiKey=46a2c8efa3664777a9f310510cfe7477`)
     .then(response => {
       console.log(response.data.recipes.length)
       if(response.data.recipes.length > 0) {
@@ -70,7 +70,7 @@ class RecipeGen extends React.Component {
             <label>Choose your Recipe options:</label>
             <br />
             <label>Cuisune: </label>
-            <select name="cuisune" value={this.state.cuisune} onChange={this.handleChange}>
+            <select name="cuisine" value={this.state.cuisine} onChange={this.handleChange}>
               <option defaultValue hidden>Choose here</option>
               <option value="">None</option>
               <option value="african">African</option>

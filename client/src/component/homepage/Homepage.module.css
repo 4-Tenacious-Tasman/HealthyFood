@@ -81,9 +81,11 @@
   opacity: 1;
   background:  #2da77d;
   height: 70px;
+  white-space:nowrap;
 }
 
 .footerContainer {
+  font-family: sans-serif;
   background-color: #2da77d;
   display: flex;
   justify-content: space-evenly;
@@ -92,7 +94,22 @@
   width: 100%;
   bottom: 0px;
   color: white;
+  margin: auto;
+  align-items: center;
+  text-align: center;
 }
+
+.footerContainer>p {
+  padding-top: 1em;
+  font-family: sans-serif;
+}
+
+.footerContainer>p:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
 
 .leftHeader {
   justify-content: flex-start;

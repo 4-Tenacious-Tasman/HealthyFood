@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import styles from './Userinfo.module.css';
 import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
+import MealPlan from './MealPlan.jsx';
 
 class Monthly extends React.Component {
   constructor(props) {
@@ -27,7 +27,10 @@ class Monthly extends React.Component {
 
   render() {
     return (
-      <Calendar onChange={this.clickDate} className={`${styles.weeklyCalendar}`} />
+      <div className={styles.calendardiv} >
+      <Calendar onChange={this.clickDate} />
+      {/* {this.props.MealPlan ? <MealPlan date={this.props.date} newPlan={this.props.newPlan} changePlan={this.props.changePlan} dailyMealPlans={this.props.dailyMealPlans} /> : null} */}
+      </div>
     )
   }
 }

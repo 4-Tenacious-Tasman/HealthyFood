@@ -49,13 +49,13 @@ class UserProfile extends React.Component {
             }
           }
         });
-        axios.get('/userPlans', { params: { id }})
-        .then(response => {
-          const { data } = response;
-          this.setState({
-            dailyMealPlans: data
-          });
-        })
+        axios.get('/userPlans', { params: { id } })
+          .then(response => {
+            const { data } = response;
+            this.setState({
+              dailyMealPlans: data
+            });
+          })
       })
       .catch(err => {
         throw err;
@@ -143,23 +143,29 @@ class UserProfile extends React.Component {
         throw err;
       })
   }
-
+  // <div>
+  // <p className={styles.greeting}>Hello, {this.state.user.first_name}
+  // <br/>
+  // Your selected meal plan preference: {this.state.user.preferences.diet}</p>
+  // <br></br>
+  // <button className={styles.Preferences} onClick={(event) => { event.preventDefault(); this.updatePreferences() }} >Edit Profile</button>
+  // </div>
   render() {
-    console.log(this.state.dailyMealPlans);
+    console.log(this.state.d);
     return (
       <div className={styles.test2} >
-        {this.state.PreferencesBool ? <Preferences close={this.updatePreferences} submitPreferences={this.submitPreferences} /> : null}
-        <div className ={styles.holder}>
-          <div className={`${styles.userinfo} card p-3`}>
-            <img src='https://myspace.com/common/images/user.png' className={`${styles.UserPhoto} rounded`} width="30%" />
-            <br></br>
-            <p className={styles.greeting}>Hello, {this.state.user.first_name}</p>
-            <br></br>
-            <button className={styles.Preferences} onClick={(event) => { event.preventDefault(); this.updatePreferences() }} >Edit Profile</button>
+        {this.state.PreferencesBool ? <Preferences close={this.updatePreferences} submitPreferences={this.submitPreferences} userState={this.state.user} /> : null}
+        <div className={styles.outercol}>
+          <div className={styles.innerrow}>
+
+
+          <div className ={styles.cal}>
+          <Monthly CalendarChange={this.CalendarChange} updateDate={this.updateDate} date={this.state.date} MealPlan={this.state.MealPlan} newPlan={this.newPlan} changePlan={this.changePlan} dailyMealPlans={this.state.dailyMealPlans}/>
           </div>
-          <Monthly CalendarChange={this.CalendarChange} updateDate={this.updateDate} />
-          </div>
-          {this.state.MealPlan ? <MealPlan date={this.state.date} newPlan={this.newPlan} dailyMealPlans={this.state.dailyMealPlans} changePlan={this.changePlan} /> : null}
+
+        </div>
+        {this.state.MealPlan ? <MealPlan date={this.state.date} newPlan={this.newPlan} changePlan={this.changePlan} dailyMealPlans={this.state.dailyMealPlans} /> : null}
+      </div>
 
 
       </div>

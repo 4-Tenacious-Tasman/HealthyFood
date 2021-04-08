@@ -18,7 +18,7 @@ class MealPlan extends React.Component {
 
 
   render() {
-    console.log(this.props)
+    console.log(this.props.date, '----', this.props.dailyMealPlans);
     const meal = this.props.dailyMealPlans.filter(meal => meal.date.includes(this.props.date));
     if (meal.length > 0 && !this.state.updated) {
       this.setState({
@@ -31,11 +31,14 @@ class MealPlan extends React.Component {
 
       <>
         {meal.length > 0
-          ? <div className={` ${styles.MealPlanContainer} card p-3`}>
+          ? <div className={styles.modalBackground}>
+            <div className={`${styles.mealModal} ${styles.fadeIn}`}>
+              <div className={` ${styles.MealPlanContainer} card p-3`}>
+             <button className={`${styles.leavemeal}`} >✕</button>
             <table className={styles.weeklyMeals}>
               <thead>
                 <tr className={styles.test}>
-                  <th scope="col" >day</th>
+                  <th scope="col" className={styles.day} >day</th>
                 </tr>
               </thead>
               <tbody>
@@ -52,7 +55,11 @@ class MealPlan extends React.Component {
             </table>
             <button onClick={this.planChange}>Change Meal Plan</button>
           </div>
-          : <div className={` ${styles.MealPlanContainer} card p-3`}>
+          </div>
+          </div>
+          : <div className={styles.modalBackground}>
+            <div className={`${styles.mealModal} ${styles.fadeIn}`}>
+              <div className={` ${styles.MealPlanContainer} card p-3`}>
             <table className={styles.weeklyMeals}>
               <thead>
                 <tr className={styles.test}>
@@ -68,6 +75,8 @@ class MealPlan extends React.Component {
             </table>
             <button onClick={this.props.newPlan}>Generate Meal Plan</button>
           </div>
+          </div>
+            </div>
         }
       </>
     );

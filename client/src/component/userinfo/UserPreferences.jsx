@@ -6,12 +6,13 @@ class Preferences extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      first_name: '',
-      last_name: '',
-      age: null,
-      target_calories: null,
-      diet: null,
-      exclude: []
+      first_name: this.props.userState.first_name,
+      last_name: this.props.userState.last_name,
+      email: this.props.userState.email,
+      age: this.props.userState.age,
+      target_calories: this.props.userState.preferences.target_calories,
+      diet: this.props.userState.preferences.diet,
+      exclude: this.props.userState.preferences.exclude
     }
     this.handleChange = this.handleChange.bind(this);
     this.checked = this.checked.bind(this);
@@ -40,7 +41,6 @@ class Preferences extends React.Component {
     this.setState({
       first_name: '',
       last_name: '',
-      email: '',
       age: null,
       target_calories: null,
       diet: null,
@@ -49,6 +49,8 @@ class Preferences extends React.Component {
   }
 
   render() {
+    const { first_name, last_name, email, age, preferences } = this.props.userState;
+    console.log(this.props.userState)
     return (
       <div className={styles.modalBackground}>
 
@@ -83,6 +85,7 @@ class Preferences extends React.Component {
               </select>
             </div>
             <div className={`${styles.DietSelect}`} >
+              <div>
               <input type="checkbox" name={`exclude`} value="Dairy" onChange={this.checked}/>
               <label htmlFor="Dairy"> Dairy</label>
               <input type="checkbox" name={`exclude`} value="Egg" onChange={this.checked}/>
@@ -91,6 +94,8 @@ class Preferences extends React.Component {
               <label htmlFor="Gluten"> Gluten</label>
               <input type="checkbox" name={`exclude`} value="Grain" onChange={this.checked}/>
               <label htmlFor="Grain"> Grain</label>
+              </div>
+              <div>
               <input type="checkbox" name={`exclude`} value="Peanut" onChange={this.checked}/>
               <label htmlFor="Peanut"> Peanut</label>
               <input type="checkbox" name={`exclude`} value="Seafood" onChange={this.checked}/>
@@ -99,6 +104,7 @@ class Preferences extends React.Component {
               <label htmlFor="Sesame"> Sesame</label>
               <input type="checkbox" name={`exclude`} value="Shellfish" onChange={this.checked}/>
               <label htmlFor="Shellfish">Shellfish</label>
+              </div>
               <input type="checkbox" name={`exclude`} value="Soy" onChange={this.checked}/>
               <label htmlFor="Soy"> Soy</label>
               <input type="checkbox" name={`exclude`} value="Sulfite" onChange={this.checked}/>

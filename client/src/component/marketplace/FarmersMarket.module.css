@@ -5,8 +5,8 @@
 }
 
 .container {
-  margin-left: 18%;
-  margin-right: 18%;
+  margin-left: 16%;
+  margin-right: 16%;
 }
 
 .buttons {
@@ -16,14 +16,17 @@
 
 .cartContainer {
   background-color: white;
-  height: 70px;
+  height: 150px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .cart {
+  height: 50px;
+  margin-top: 80px;
   margin-right: 15%;
   float: right;
   font-size: 16px;
-  margin-top: 0.3em;
   padding: 14px 0px;
   width: 8%;
   line-height: 21px;

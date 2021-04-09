@@ -1,4 +1,3 @@
-
 .modal {
   position: fixed;
   top: 0;
@@ -12,7 +11,7 @@
 .modalmain {
   position:fixed;
   background: white;
-  width: 25%;
+  width: 26%;
   height: 75%;
   top:50%;
   left:50%;
@@ -22,13 +21,18 @@
   font-family: Helvetica;
   font-size: 16px;
   padding-left: 60px;
-  padding-right: 60px;
-  padding-top: 60px;
+  padding-right: 30px;
+  padding-top: 30px;
   padding-bottom: 60px;
   border-radius: 4px;
   display:flex;
   flex-direction: column;
   text-align: left;
+}
+
+.textContainer {
+  padding-right: 30px;
+  padding-top: 30px;
 }
 
 .itemCostContainer {
@@ -72,19 +76,15 @@
 }
 
 .itemInfo {
+  width: 45%;
   display: flex;
   flex-direction: column;
-  margin-right: 70px;
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 .priceContainer {
   display: flex;
   justify-content: space-between;
-}
-
-.price {
-  text-align: right;
 }
 
 .subtotal {

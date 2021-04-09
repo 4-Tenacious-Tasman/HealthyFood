@@ -187,7 +187,7 @@ class UserProfile extends React.Component {
           : <div>Welcome back!</div>
         }
         {!this.state.subscribed
-          ? <div><button onClick={this.updateSubscription}>Subscribe</button></div>
+          ? <div><button  className={styles.button} onClick={this.updateSubscription}>Subscribe</button></div>
           : <div>
             <div>
               <button className={styles.button} onClick={(event) => { event.preventDefault(); this.updatePreferences() }} >Edit Profile</button>

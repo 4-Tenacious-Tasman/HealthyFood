@@ -85,7 +85,7 @@ class MealPlan extends React.Component {
           </div>
           </div>
           : <div className={styles.modalBackground}>
-            <div className={`${styles.mealModal} ${styles.fadeIn}`}>
+            <div className={`${styles.mealModal2} ${styles.fadeIn}`}>
             <div>
             <button className={`${styles.leavemeal}`} onClick={(event)=>{event.preventDefault(); this.props.CalendarChange()}} >✕</button>
             </div>
@@ -100,7 +100,7 @@ class MealPlan extends React.Component {
               </thead>
               <tbody>
                 <tr >
-                <h2>It dooesn't look like you have a meal plan for this day yet.</h2>
+                <h2>It doesn't look like you have a meal plan for this day yet.</h2>
             <br />
                   </tr>
                   </tbody>

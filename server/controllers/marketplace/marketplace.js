@@ -13,7 +13,11 @@ module.exports = {
             } else {
               ingredient.costvalue = (ingredient.costvalue/100).toFixed(2);
             }
-            // return ingredient;
+            var name = ingredient.name.split(' ');
+            name = name.map((word) => {
+              return word[0].toUpperCase() + word.substring(1)
+            })
+            ingredient.name = name.join(' ');
         })
         res.send(ingredients);
       })

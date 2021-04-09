@@ -5,6 +5,7 @@ import Cart from './Cart/Cart.jsx'
 import AisleButtons from './AisleButtons/AisleButtons.jsx'
 import styles from './FarmersMarket.module.css'
 import OrderConfirmation from './OrderConfirmation/OrderConfirmation.jsx'
+import Promotions from './Promotions/Promotions.jsx'
 import axios from 'axios'
 
 class FarmersMarket extends React.Component {
@@ -110,6 +111,7 @@ class FarmersMarket extends React.Component {
         <AisleButtons selectAisle={this.selectAisle}/>
         <div className={styles.container}>
           <Aisle groceries={groceriesToRender} addToCart={this.addToCart}/>
+          {this.state.selected === 'home' ? <Promotions /> : null}
         </div>
       </div>
     )

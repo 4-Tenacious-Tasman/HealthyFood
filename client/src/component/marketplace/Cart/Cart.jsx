@@ -4,9 +4,10 @@ import styles from './Cart.module.css'
 const Cart = (props) => {
   var total = 0;
   props.groceries.forEach((grocery) => {
-    total += grocery.costvalue
+    total += Number(grocery.costvalue)
   })
-  total = Math.round(total * 100) / 100
+  total = total.toFixed(2)
+
   var itemCount = props.groceries.length;
 
   return (

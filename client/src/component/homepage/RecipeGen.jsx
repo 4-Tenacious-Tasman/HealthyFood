@@ -65,7 +65,7 @@ class RecipeGen extends React.Component {
 
   render() {
     return (
-      <div style={{display: "flex", flexDirection: "column"}}>
+      <div style={{display: "flex", flexDirection: "column", minHeight: "920px"}}>
           <div className={styles.recipeOptions}>
             <label>Choose your Recipe options:</label>
             <br />

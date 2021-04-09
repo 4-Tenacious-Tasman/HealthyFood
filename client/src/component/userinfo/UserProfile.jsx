@@ -1,10 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-// import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from "@auth0/auth0-react";
 import Preferences from './UserPreferences.jsx';
 import styles from './Userinfo.module.css';
 import MealPlan from './MealPlan.jsx';
 import Monthly from './Monthly.jsx';
+import Login from '../login/Login.jsx';
 
 class UserProfile extends React.Component {
   constructor(props) {

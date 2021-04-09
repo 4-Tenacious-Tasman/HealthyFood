@@ -134,7 +134,7 @@
   margin: 0 auto;
   padding: 20px;
   width: 40vw;
-  height: 350px;
+  height: 400px;
   display: flex;
   left: 30%;
 }
@@ -227,7 +227,7 @@ position: fixed;
     justify-content: center;
     width: calc(100vh - 120px);
     position: relative;
-    right: 40%
+    right: 20%
 
   }
   .calendardiv{
@@ -264,13 +264,13 @@ position: fixed;
       display: inline-flex;
       height: 10%;
       position: relative;
-      left:63%;
-      top:5%;
+      top: 10%;
+
     }
     .intro{
       position: relative;
       left: 1%;
-      top: 5%;
+      top: 10%;
     }
     .inputer{
       padding:5px;
@@ -278,4 +278,15 @@ position: fixed;
       -webkit-border-radius: 5px;
       border-radius: 5px;
 
+    }
+    .padd{
+      padding: 10px;
+    }
+    .unsub{
+      justify-content: center;
+      text-align: center;
+    }
+    .pleasesub{
+      position: relative;
+      top:10%;
     }

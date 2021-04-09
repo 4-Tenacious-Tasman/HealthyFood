@@ -21,6 +21,7 @@
   width: 650px;
   height: auto;
   color: rgb(63, 63, 63);
+  font-size: 17px;
 }
 
 .dairyImg {
@@ -36,6 +37,7 @@
 
 .heading {
   margin-bottom: 10px;
+  font-size: 17px;
 }
 
 .list {

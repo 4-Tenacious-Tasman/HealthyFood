@@ -7,7 +7,6 @@ const Cart = (props) => {
     total += Number(grocery.costvalue)
   })
   total = total.toFixed(2)
-
   var itemCount = props.groceries.length;
 
   return (
@@ -26,7 +25,7 @@ const Cart = (props) => {
                     </div>
                     <div className={styles.itemInfo}>
                       <div className={styles.name}>{grocery.name}</div>
-                      <div className={styles.price}>Qty: 1 x ${grocery.costvalue}</div>
+                      <div>Qty: 1 x ${grocery.costvalue}</div>
                     </div>
                     <div onClick={(e) => {props.removeFromCart(grocery)}} className={styles.delete}>X</div>
                   </div>

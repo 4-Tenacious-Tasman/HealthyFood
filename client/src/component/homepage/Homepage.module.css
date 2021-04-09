@@ -166,7 +166,7 @@
 
 .carouselImageC {
   background-image: url('../../../public/images/OpenFieldFarm.jpeg');
-  height: 600px;
+  height: 60vh;
   width: 100vw;
   background-size: cover;
   background-position: center;
@@ -176,7 +176,7 @@
 
 .carouselImageD {
   background-image: url('../../../public/images/blueberryheart.png');
-  height: 600px;
+  height: 60vh;
   width: 100vw;
   background-size: cover;
   background-position: center;

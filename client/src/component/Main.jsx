@@ -8,6 +8,7 @@ import Login from './login/Login.jsx';
 import { useAuth0 } from "@auth0/auth0-react";
 import Navigation from './homepage/Navigation.jsx';
 import Profile from './login/Profile.jsx';
+import Footer from './homepage/Footer.jsx';
 
  const Main = () => {
 
@@ -25,6 +26,7 @@ import Profile from './login/Profile.jsx';
         <Route path='/RecipeGenerator' component={RecipeGen}></Route>
         <Route path='/' component={HomePage}></Route>
       </Switch>
+      <Footer />
     </Router>
   )
 

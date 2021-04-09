@@ -1,0 +1,229 @@
+.pageContainer {
+  position: relative;
+  min-height: 100vh;
+}
+
+.Box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 60vw;
+  margin: 0 auto;
+  justify-content: space-evenly;
+}
+
+.descriptionPageHome {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 60%;
+}
+
+.carouselContainerMission {
+  display: flex;
+  justify-content: center;
+  padding-top: 3.88rem;
+}
+
+.innerCarousel {
+  height: 500px;
+  width: 100%;
+}
+
+.recipeOptions {
+  border: 5px solid rgb(252, 229, 208);
+  background: rgb(252, 229, 208);
+  border-radius: 15px;
+  height: 200px;
+  width: 300px;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 12.5%;
+  text-align: center;
+}
+
+.recipeButton {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 15px;
+  background-color: rgb(236, 110, 85);
+  border-radius: 8px;
+  border: 2px solid rgb(236, 110, 85);
+  color: rgb(255, 255, 255);
+}
+.recipeButton:hover{
+  opacity: 0.5;
+}
+
+
+.newRecipe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 100px;
+  margin-top: 20px;
+}
+
+.headerContainer {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  overflow: hidden;
+  z-index: 1;
+  width: 100%;
+  margin: auto;
+  top: 0;
+  opacity: 1;
+  background:  #2da77d;
+  height: 70px;
+  white-space:nowrap;
+}
+
+.footerContainer {
+  font-family: sans-serif;
+  background-color: #2da77d;
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  bottom: 0px;
+  color: white;
+  margin: auto;
+  align-items: center;
+  text-align: center;
+
+}
+
+.footerContainer>p {
+  padding-top: 1em;
+  font-family: sans-serif;
+
+}
+
+.footerContainer>p:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+
+.leftHeader {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.rightHeader {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.imageHead {
+  height: 90%;
+  width: 90%;
+  padding-top: 0.45em;
+}
+
+.labels {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: left;
+}
+
+
+
+.farmerImage{
+  width: 100%;
+  height: 800px;
+}
+
+.carouselImageA {
+  background-image: url('../../../public/images/veggietables.jpeg');
+  height: 60vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.carouselImageB {
+  background-image: url('../../../public/images/blueberryheart.png');
+  height: 60vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.carouselImageC {
+  background-image: url('../../../public/images/OpenFieldFarm.jpeg');
+  height: 600px;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.carouselImageD {
+  background-image: url('../../../public/images/evenbettercows.jpeg');
+  height: 600px;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+
+
+
+
+.farmerCarousel{
+  padding-top: 80px;
+  height: 500px;
+  width: 100%;
+  margin-bottom: 200px;
+}
+
+.carouselImage2A {
+  background-image: url('../../../public/images/farmerfour.jpeg');
+  height: 60vh;
+  width: 100vw;
+  background-size: cover;
+  background-position-y: -20em;
+  background-repeat: no-repeat;
+}
+
+.carouselImage2B {
+  background-image: url('../../../public/images/Farmerthree.jpeg');
+  height: 60vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.carouselImage2C {
+  background-image: url('../../../public/images/FarmerOne.jpeg');
+  height: 60vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.carouselImage2D {
+  background-image: url('../../../public/images/FarmersTwo.jpeg');
+  height: 60vh;
+  width: 100vw;
+  background-size: cover;
+  background-position-y: -8em;
+  background-repeat: no-repeat;
+}

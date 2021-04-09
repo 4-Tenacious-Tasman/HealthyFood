@@ -1,44 +1,29 @@
 import React from 'react';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
-import styled from 'styled-components';
-import Logo from "../../../public/images/HealthyFoodLogo.jpeg";
+import styles from './Homepage.module.css';
 
-const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  position: static;
-`;
+import Image from '../login/healthylogo.png';
 
-const LeftHeader = styled.div`
-  justify-content: flex-start;
-`;
-
-const RightHeader = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-`;
-
-
-const ImageHead = styled.img`
-  height: 100px;
-`;
 
 const Navigation = () => {
   const { isAuthenticated } = useAuth0();
   return (
-    <Header className="header">
-    <LeftHeader className="header-left">
-    <NavLink src={Logo} exact to='/' activeStyle={{fontWeight: "bold"}}> <ImageHead src={Logo}></ImageHead></NavLink>
-    <NavLink exact to='/marketplace' activeStyle={{fontWeight: "bold"}} style={{margin: "5px"}}>Marketplace</NavLink>
-    <NavLink exact to='/RecipeGenerator' activeStyle={{fontWeight: "bold"}} style={{margin: "5px"}}>RecipeGenerator</NavLink>
-    </LeftHeader>
-    <RightHeader className="header-right">
-    <NavLink exact to='/login' activeStyle={{fontWeight: "bold"}} style={{margin: "5px"}}>{isAuthenticated ? 'Logout' : 'Login'}</NavLink>
-    <NavLink exact to='/userprofile' activeStyle={{fontWeight: "bold"}} style={{margin: "5px"}}>Profile</NavLink>
-    </RightHeader>
-  </Header>
+    <div className={styles.headerContainer}>
+      <div className={styles.leftHeader}>
+
+        <div style={{height: "90px", width: "90px"}}>
+        <NavLink src={Image} exact to='/' activeStyle={{fontWeight: "bold"}}> <img className={styles.imageHead} src={Image}></img></NavLink>
+        </div>
+
+        <NavLink exact to='/marketplace' activeStyle={{fontWeight: "bold"}} style={{margin: "25px", color: "white", fontFamily: "sans-serif"}}>MARKETPLACE</NavLink>
+        <NavLink exact to='/RecipeGenerator' activeStyle={{fontWeight: "bold"}} style={{margin: "25px", color: "white", fontFamily: "sans-serif"}}>RECIPE GENERATOR</NavLink>
+      </div>
+    <div className={styles.rightHeader}>
+    <NavLink exact to='/login' activeStyle={{fontWeight: "bold"}} style={{margin: "25px", color: "white", fontFamily: "sans-serif"}}>LOGIN</NavLink>
+    <NavLink exact to='/userprofile' activeStyle={{fontWeight: "bold"}} style={{margin: "25px", color: "white", fontFamily: "sans-serif"}}>PROFILE</NavLink>
+    </div>
+  </div>
   )
 };
 

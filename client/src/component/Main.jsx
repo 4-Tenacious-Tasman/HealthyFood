@@ -10,6 +10,7 @@ import Navigation from './homepage/Navigation.jsx';
 import Profile from './login/Profile.jsx';
 import ProtectedRoute from './login/ProtectedRoute.jsx';
 import Loader from './login/Loader.jsx';
+import Footer from './homepage/Footer.jsx';
 
  const Main = () => {
 
@@ -36,6 +37,7 @@ import Loader from './login/Loader.jsx';
           <Route path='/RecipeGenerator' component={RecipeGen}></Route>
           <Route path='/' component={HomePage}></Route>
         </Switch>
+        <Footer />
     </Router>
   )
 

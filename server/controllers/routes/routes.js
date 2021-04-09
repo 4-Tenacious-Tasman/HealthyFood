@@ -10,5 +10,6 @@ healthyfood.post('/signup',profile.signup )
 healthyfood.put('/updatePreferences',profile.updatePreferences )
 healthyfood.put('/changePlan',profile.changePlan)
 healthyfood.get('/ingredients', marketplace.getAllIngredients);
+healthyfood.put('/updateSubscription', profile.updateSubscription);
 
 module.exports.healthyfood = healthyfood;

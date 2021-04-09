@@ -31,7 +31,6 @@ import Footer from './homepage/Footer.jsx';
         <Navigation />
         <Switch>
           <Route path='/marketplace' component={FarmersMarket}></Route>
-          {/* <Route path='/userprofile' render={() => <UserProfile userEmail={user.email} />}></Route> */}
           <ProtectedRoute path='/userprofile' component={Profile} />
           <Route path='/login' component={Login}></Route>
           <Route path='/RecipeGenerator' component={RecipeGen}></Route>

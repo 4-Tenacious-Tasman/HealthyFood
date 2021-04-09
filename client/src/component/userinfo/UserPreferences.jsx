@@ -54,7 +54,7 @@ class Preferences extends React.Component {
       <div className={styles.modalBackground}>
 
         <div className={`${styles.imageModal} ${styles.fadeIn}`}>
-         <div> <button className={`${styles.leavePreferences}`} onClick={(event) => { event.preventDefault(); this.props.close() }}>✕</button></div>
+         <div className={styles.exitpref}> <button className={`${styles.leavePreferences}`} onClick={(event) => { event.preventDefault(); this.props.close() }}>✕</button></div>
          <div className={styles.formdiv}>
            <h4>User Settings</h4>
           <form onSubmit={this.handleSubmit} >

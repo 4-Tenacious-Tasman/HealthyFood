@@ -155,7 +155,10 @@ position: fixed;
   display: flex;
 
 }
-
+.exitmeal{
+  position: relative;
+  left: 97%;
+}
 .imageModal{
 
   position: fixed;
@@ -175,6 +178,13 @@ position: fixed;
   display: inline-flex;
   outline:none;
   font-size: 16px;
+  position: relative;
+  left: 95%;
+
+}
+.exitpref{
+  position: relative;
+  left: 96%;
 }
 .leavePreferences{
   padding: 0;

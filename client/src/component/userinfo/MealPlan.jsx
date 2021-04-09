@@ -66,14 +66,14 @@ class MealPlan extends React.Component {
               </thead>
               <tbody>
                 <tr >
-                  <td><p >Meal  breakfast</p> <a href={meal[0].breakfast.sourceUrl} className ={styles.buttonQ } >{meal[0].breakfast.title}</a></td>
+                  <td><p >Meal  breakfast</p> <a href={meal[0].breakfast.sourceUrl }  target="_blank" className ={styles.buttonQ } >{meal[0].breakfast.title}</a></td>
                 </tr>
                 <br></br>
                 <tr>
-                  <td><p>Meal  lunch</p><a href={meal[0].lunch.sourceUrl} className ={styles.buttonQ }>{meal[0].lunch.title}</a></td>
+                  <td><p>Meal  lunch</p><a href={meal[0].lunch.sourceUrl}  target="_blank" className ={styles.buttonQ }>{meal[0].lunch.title}</a></td>
                 </tr>
                 <tr>
-                  <td><p>Meal  dinner</p><a href={meal[0].dinner.sourceUrl} className ={styles.buttonQ }>{meal[0].dinner.title}</a></td>
+                  <td><p>Meal  dinner</p><a href={meal[0].dinner.sourceUrl}  target="_blank" className ={styles.buttonQ }>{meal[0].dinner.title}</a></td>
                 </tr>
               </tbody>
             </table>
@@ -86,7 +86,7 @@ class MealPlan extends React.Component {
           </div>
           : <div className={styles.modalBackground}>
             <div className={`${styles.mealModal2} ${styles.fadeIn}`}>
-            <div>
+            <div className={styles.exitmeal}>
             <button className={`${styles.leavemeal}`} onClick={(event)=>{event.preventDefault(); this.props.CalendarChange()}} >✕</button>
             </div>
             <table className={styles.weeklyMeals}>

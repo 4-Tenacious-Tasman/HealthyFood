@@ -1,14 +1,31 @@
 const express = require('express');
 const axios = require('axios')
 const db = require('../../../database/index.js');
-const { mealPlan, apiKey } = require('../../config.js');
+const { mealPlan, apiKey, recipes } = require('../../config.js');
 
 module.exports = {
+  updateSubscription: (req, res) => {
+    const { subscribed, id } = req.body;
+    db.query('UPDATE users SET subscribed = $1 WHERE id = $2 RETURNING *;', [subscribed, id])
+      .then(result => {
+        res.json(result.rows);
+      })
+      .catch(err => {
+        res.json(err);
+      })
+  },
   userDetails: (req, res) => {
     const { email } = req.query;
     db.query('SELECT * FROM users WHERE email IN ($1)', [email])
       .then(result => {
-        res.json(result.rows[0]);
+        if (!result.rows.length > 0) {
+          db.query('INSERT INTO users(email) VALUES($1) RETURNING *;', [email])
+            .then(userDetails => {
+              res.json(userDetails.rows[0]);
+            })
+        } else {
+          res.json(result.rows[0]);
+        }
       })
       .catch(err => {
         res.send(err);
@@ -30,7 +47,7 @@ module.exports = {
       .then(result => {
         const { meals, nutrients } = result.data;
         let breakfast, lunch, dinner;
-        meals.forEach((meal, index) => {
+        meals.forEach(async (meal, index) => {
           if (index === 0) {
             breakfast = meal;
           } else if (index === 1) {
@@ -97,7 +114,7 @@ module.exports = {
       .then(result => {
         const { meals, nutrients } = result.data;
         let breakfast, lunch, dinner;
-        meals.forEach((meal, index) => {
+        meals.forEach(async (meal, index) => {
           if (index === 0) {
             breakfast = meal;
           } else if (index === 1) {
@@ -106,6 +123,7 @@ module.exports = {
             dinner = meal;
           }
         });
+
         db.query('UPDATE daily_meal_plans SET breakfast = $1, lunch = $2, dinner = $3, nutrients = $4 WHERE id = $5;', [breakfast, lunch, dinner, nutrients, meal_id])
           .then(() => {
             db.query('SELECT * FROM daily_meal_plans WHERE user_id = $1;', [id])

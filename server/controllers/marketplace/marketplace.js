@@ -10,10 +10,15 @@ module.exports = {
           ingredients.forEach(ingredient => {
             if (ingredient.costvalue === 0) {
               ingredient.costvalue = 1;
+              ingredient.costvalue = ingredient.costvalue.toFixed(2);
             } else {
-              ingredient.costvalue = ingredient.costvalue/100;
+              ingredient.costvalue = (ingredient.costvalue/100).toFixed(2);
             }
-            // return ingredient;
+            var name = ingredient.name.split(' ');
+            name = name.map((word) => {
+              return word[0].toUpperCase() + word.substring(1)
+            })
+            ingredient.name = name.join(' ');
         })
         res.send(ingredients);
       })

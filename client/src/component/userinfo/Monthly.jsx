@@ -26,7 +26,7 @@ class Monthly extends React.Component {
   }
 
   render() {
-    console.log('hi', this.props.dailyMealPlans);
+
     const { dailyMealPlans } = this.props;
     return (
       <div className={styles.calendardiv}  >

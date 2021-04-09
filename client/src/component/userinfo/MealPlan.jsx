@@ -68,7 +68,7 @@ class MealPlan extends React.Component {
                 <tr >
                   <td><p >Meal  breakfast</p> <a href={meal[0].breakfast.sourceUrl }  target="_blank" className ={styles.buttonQ } >{meal[0].breakfast.title}</a></td>
                 </tr>
-                <br></br>
+
                 <tr>
                   <td><p>Meal  lunch</p><a href={meal[0].lunch.sourceUrl}  target="_blank" className ={styles.buttonQ }>{meal[0].lunch.title}</a></td>
                 </tr>
@@ -77,7 +77,7 @@ class MealPlan extends React.Component {
                 </tr>
               </tbody>
             </table>
-
+              <br></br>
             <button className={styles.button} onClick={this.planChange}>Change Meal Plan</button>
             </div>
 

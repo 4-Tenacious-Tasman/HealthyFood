@@ -174,12 +174,13 @@ class UserProfile extends React.Component {
   // <button className={styles.Preferences} onClick={(event) => { event.preventDefault(); this.updatePreferences() }} >Edit Profile</button>
   // </div>
   render() {
-    console.log(this.state.user.preferences);
+
     const mealPlanDiet = this.state.user.preferences.diet;
     return (
       <div className={styles.test2} >
+        <div>
         {this.state.PreferencesBool ? <Preferences close={this.updatePreferences} submitPreferences={this.submitPreferences} userState={this.state.user} /> : null}
-        {mealPlanDiet
+        {mealPlanDiet && this.state.subscribed
           ? <div className={styles.intro}>
             <h4>Welcome back, {this.state.user.first_name}!</h4>
           <br />
@@ -189,16 +190,17 @@ class UserProfile extends React.Component {
           : <div className={styles.intro} ><h4>Welcome back, {this.state.user.first_name}!</h4></div>
         }
         {!this.state.subscribed
-          ? <div><button  className={styles.button} onClick={this.updateSubscription}>Subscribe</button></div>
+          ? <div className={`${styles.unsub}`}><button  className={`${styles.button} ${styles.padd}`} onClick={this.updateSubscription}>Subscribe</button></div>
           : <div className={`${styles.loginbutton}`}>
             <div className={`${styles.DietSelect}`}>
-              <button className={styles.button} onClick={(event) => { event.preventDefault(); this.updatePreferences() }} >Edit Profile</button>
+              <button className={`${styles.button} ${styles.padd}`} onClick={(event) => { event.preventDefault(); this.updatePreferences() }} >Edit Profile</button>
             </div>
             <div className={`${styles.DietSelect}`}>
-              <button className={styles.button} onClick={this.updateSubscription}>Unsubscribe</button>
+              <button className={`${styles.button} ${styles.padd}`}  onClick={this.updateSubscription}>Unsubscribe</button>
             </div>
           </div>
         }
+        </div>
         {this.state.subscribed
           ? <div className={styles.outercol}>
             <div className={styles.innerrow}>
@@ -211,7 +213,7 @@ class UserProfile extends React.Component {
             </div>
             {this.state.MealPlan ? <MealPlan date={this.state.date} newPlan={this.newPlan} changePlan={this.changePlan} dailyMealPlans={this.state.dailyMealPlans} CalendarChange={this.CalendarChange} /> : null}
           </div>
-          : <div> Please subscribe to access your meal plans </div>
+          : <div className={`${styles.pleasesub}`}> Please subscribe to access your meal plans </div>
         }
         {/* // <div className={styles.outercol}>
         //   <div className={styles.innerrow}>

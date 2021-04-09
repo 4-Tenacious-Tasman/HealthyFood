@@ -2,7 +2,7 @@ import React from 'react';
 import HeroSection from './HeroSection.jsx';
 import MissionSection from './MissionSection.jsx';
 import "bootstrap/dist/css/bootstrap.css";
-import Sustain from "../../../public/images/earth.png";
+import Sustain from "../../../public/images/eco_nuevo.png";
 import MealPrep from "../../../public/images/mealpreplogo.png";
 import Recipe from "../../../public/images/recipelogo.png";
 import styles from './Homepage.module.css';
@@ -43,7 +43,7 @@ class HomePage extends React.Component {
             </div>
 
             <div className={styles.Box}>
-              <img src={Sustain} style={{width: "400px"}}></img>
+              <img src={Sustain} style={{width: "400px", paddingRight: "45px"}}></img>
                 <div>
                   <h2>Sustainability for All</h2>
                   <p>We are a homegrown company that runs on taking care of our customers, our local farms and most important, our planet.</p>

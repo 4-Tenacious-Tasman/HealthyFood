@@ -82,6 +82,7 @@
   background:  #2da77d;
   height: 70px;
   white-space:nowrap;
+  z-index: 100;
 }
 
 .footerContainer {
@@ -96,7 +97,7 @@
   margin: auto;
   align-items: center;
   text-align: center;
-
+  z-index: 100;
 }
 
 .footerContainer>p {
@@ -150,15 +151,17 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  z-index: 0;
 }
 
 .carouselImageB {
-  background-image: url('../../../public/images/blueberryheart.png');
+  background-image: url('../../../public/images/fullveggies.jpeg');
   height: 60vh;
   width: 100vw;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  z-index: 0;
 }
 
 .carouselImageC {
@@ -168,15 +171,17 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  z-index: 0;
 }
 
 .carouselImageD {
-  background-image: url('../../../public/images/evenbettercows.jpeg');
+  background-image: url('../../../public/images/blueberryheart.png');
   height: 600px;
   width: 100vw;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  z-index: 0;
 }
 
 
@@ -192,20 +197,21 @@
 }
 
 .carouselImage2A {
-  background-image: url('../../../public/images/farmerfour.jpeg');
-  height: 60vh;
-  width: 100vw;
-  background-size: cover;
-  background-position-y: -20em;
-  background-repeat: no-repeat;
-}
-
-.carouselImage2B {
   background-image: url('../../../public/images/Farmerthree.jpeg');
   height: 60vh;
   width: 100vw;
   background-size: cover;
   background-position: center;
+  background-position-y: -15em;
+  background-repeat: no-repeat;
+}
+
+.carouselImage2B {
+  background-image: url('../../../public/images/farmerfour.jpeg');
+  height: 60vh;
+  width: 100vw;
+  background-size: cover;
+  background-position-y: -20em;
   background-repeat: no-repeat;
 }
 

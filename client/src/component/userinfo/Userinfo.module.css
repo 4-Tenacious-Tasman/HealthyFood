@@ -22,11 +22,12 @@
   height: calc(100vh - 120px);
   width: 100%;
   margin: auto;
-  padding: 20px;
+  padding-top: 3.88rem;
   background-color: rgb(252, 229, 208);
   justify-content: center;
   text-align: center;
   display: flex;
+
 }
 
 .userinfo{

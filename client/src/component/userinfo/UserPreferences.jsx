@@ -56,21 +56,22 @@ class Preferences extends React.Component {
         <div className={`${styles.imageModal} ${styles.fadeIn}`}>
          <div> <button className={`${styles.leavePreferences}`} onClick={(event) => { event.preventDefault(); this.props.close() }}>✕</button></div>
          <div className={styles.formdiv}>
+           <h4>User Settings</h4>
           <form onSubmit={this.handleSubmit} >
             <div className={`${styles.FirstName } ${styles.formSpacer}`}>
-              <input placeholder={`First Name`} onChange={this.handleChange} name={`first_name`} value={this.state.first_name} required />
+              <input className={`${styles.inputer}`} placeholder={`First Name`} onChange={this.handleChange} name={`first_name`} value={this.state.first_name} required />
             </div>
             <div className={`${styles.LastName} ${styles.formSpacer}`}>
-              <input placeholder={`Last Name`} onChange={this.handleChange} name={`last_name`} value={this.state.last_name} required />
+              <input placeholder={`Last Name`} className={`${styles.inputer}`} onChange={this.handleChange} name={`last_name`} value={this.state.last_name} required />
             </div>
             <div className={`${styles.Age} ${styles.formSpacer} `}>
-              <input placeholder={`Age`} type={`number`} onChange={this.handleChange} name={`age`} value={this.state.age} required />
+              <input placeholder={`Age`} className={`${styles.inputer}`} type={`number`} onChange={this.handleChange} name={`age`} value={this.state.age} required />
             </div>
             <div className={`${styles.TargetCal} ${styles.formSpacer}`}>
-              <input placeholder={`Target Calories`} type={`number`} className={styles.caliPref} onChange={this.handleChange} name={`target_calories`} value={this.state.target_calories} />
+              <input placeholder={`Target Calories`} type={`number`} className={`${styles.inputer}`}  onChange={this.handleChange} name={`target_calories`} value={this.state.target_calories} />
             </div>
             <div className={`${styles.DietSelect}`}>
-              <select onChange={this.handleChange} name={`diet`}>
+              <select onChange={this.handleChange} name={`diet`} className={`${styles.inputer}`}>
                 <option value="" disabled selected>Diet Preference</option>
                 <option value={`Vegetarian`}>Vegetarian</option>
                 <option value={`Vegan`}>Vegan</option>
@@ -88,7 +89,7 @@ class Preferences extends React.Component {
 
               <div>
                 <br></br>
-              <h4> meal restrictions</h4>
+              <h4> Meal Restrictions</h4>
                 <input  type="checkbox" name={`exclude`} value="Dairy" onChange={this.checked} />
                 <label className={styles.spacing} htmlFor="Dairy"> Dairy</label>
                 <input type="checkbox" name={`exclude`} value="Egg" onChange={this.checked} />

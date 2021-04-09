@@ -179,20 +179,21 @@ class UserProfile extends React.Component {
       <div className={styles.test2} >
         {this.state.PreferencesBool ? <Preferences close={this.updatePreferences} submitPreferences={this.submitPreferences} userState={this.state.user} /> : null}
         {mealPlanDiet
-          ? <div>
-            Welcome back, {this.state.user.first_name}!
+          ? <div className={styles.intro}>
+            <h4>Welcome back, {this.state.user.first_name}!</h4>
           <br />
-          Your meal plan is currently set to {mealPlanDiet.toLowerCase()}.
+          <h4>Your meal plan is currently set to {mealPlanDiet.toLowerCase()}.</h4>
+          <br />
         </div>
-          : <div>Welcome back!</div>
+          : <div className={styles.intro} ><h4>Welcome back, {this.state.user.first_name}!</h4></div>
         }
         {!this.state.subscribed
           ? <div><button  className={styles.button} onClick={this.updateSubscription}>Subscribe</button></div>
-          : <div>
-            <div>
+          : <div className={`${styles.loginbutton}`}>
+            <div className={`${styles.DietSelect}`}>
               <button className={styles.button} onClick={(event) => { event.preventDefault(); this.updatePreferences() }} >Edit Profile</button>
             </div>
-            <div>
+            <div className={`${styles.DietSelect}`}>
               <button className={styles.button} onClick={this.updateSubscription}>Unsubscribe</button>
             </div>
           </div>

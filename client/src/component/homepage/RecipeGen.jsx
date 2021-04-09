@@ -1,41 +1,20 @@
 import React from "react";
-import styled from 'styled-components';
 import axios from 'axios';
 import Recipe from './Recipe.jsx';
+import styles from './Homepage.module.css';
 
-
-const Button = styled.button`
-  height: 30px;
-  margin: auto;
-  margin-left: 5px;
-  border-radius: 15px;
-  background: salmon;
-
-  &:hover{
-    background-color: grey;
-    transition: all ease 0.5s;
-  }
-`;
-
-const Box = styled.div`
-  border: 5px solid lightgreen;
-  border-radius: 15px;
-  height: 200px;
-  width: 250px;
-  justify-Content: flex-start;
-  flex-direction: column;
-`;
 
 class RecipeGen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cuisune: '',
+      cuisine: '',
       diet: '',
       time: '',
       sent: 0,
       currentRecipe: [],
-      tryAgain: false,
+      showRecipe: false,
+      noResponse: false,
     };
     this.getRecipe = this.getRecipe.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -43,27 +22,31 @@ class RecipeGen extends React.Component {
 
   getRecipe() {
     const diet = this.state.diet !== '' ? this.state.diet : null;
-    const cuisune = this.state.cuisune !== '' ? this.state.cuisune : null;
-    const time = this.state.time !== '' ? this.state.cuisune : null;
-    if(this.state.sent < 5 && this.state.cuisune !== "" && this.state.diet !== "" && this.state.time !== "") {
-    axios.get(`https://api.spoonacular.com/recipes/random?number=1&tags=${cuisune},${diet},${time}&apiKey=46a2c8efa3664777a9f310510cfe7477`)
+    const cuisine = this.state.cuisine !== '' ? this.state.cuisine : null;
+    const time = this.state.time !== '' ? this.state.cuisine : null;
+    if(this.state.sent < 5 && this.state.cuisine !== "" && this.state.diet !== "" && this.state.time !== "") {
+    axios.get(`https://api.spoonacular.com/recipes/random?number=1&tags=${cuisine},${diet},${time}&apiKey=46a2c8efa3664777a9f310510cfe7477`)
     .then(response => {
-      console.log(response.data);
-      if (response.data.length > 0){
-        this.setState({
+      console.log(response.data.recipes.length)
+      if(response.data.recipes.length > 0) {
+               this.setState({
           sent: this.state.sent + 1,
-          currentRecipe: response.data
+          currentRecipe: response.data,
+          showRecipe: true,
+          noResponse: false,
+        })
+      } else {
+        this.setState({
+          showRecipe: false,
+          noResponse: true,
         })
       }
-      this.setState({
-        tryAgain: !this.state.tryAgain
-      })
+
     })
     .catch(err => {
       console.log(err);
     })
     }
-
   }
 
   handleChange(e) {
@@ -74,13 +57,22 @@ class RecipeGen extends React.Component {
     })
   }
 
+  showWrong() {
+    this.setState({
+      noResponse: !this.state.noResponse,
+    })
+  }
+
   render() {
     return (
-      <div>
-          <Box>
+      <div style={{display: "flex", flexDirection: "column"}}>
+          <div className={styles.recipeOptions}>
             <label>Choose your Recipe options:</label>
-            <select name="cuisune" value={this.state.cuisune} onChange={this.handleChange}>
-              <option selected hidden>Choose here</option>
+            <br />
+            <label>Cuisine: </label>
+            <select name="cuisine" value={this.state.cuisine} onChange={this.handleChange}>
+              <option defaultValue hidden>Choose here</option>
+              <option value="">None</option>
               <option value="african">African</option>
               <option value="american">American</option>
               <option value="british">British</option>
@@ -99,7 +91,7 @@ class RecipeGen extends React.Component {
               <option value="korean">Korean</option>
               <option value="latin American">Latin American</option>
               <option value="mediterranean">Mediterranean</option>
-              <option value="mexican" defaultValue>Mexican</option>
+              <option value="mexican" >Mexican</option>
               <option value="middleEastern">Middle Eastern</option>
               <option value="southern">Southern</option>
               <option value="spanish">Spanish</option>
@@ -107,33 +99,40 @@ class RecipeGen extends React.Component {
               <option value="vietnamese">Vietnamese</option>
             </select>
 
+            <br />
+            <label>Diet: </label>
             <select name="diet" value={this.state.diet} onChange={this.handleChange}>
-              <option selected hidden>Choose here</option>
-              <option value="gluten Free">Gluten Free</option>
+              <option defaultValue hidden>Choose here</option>
+              <option value="">None</option>
+              <option value="gluten free">Gluten Free</option>
               <option value="ketogenic">Ketogenic</option>
               <option value="vegetarian">Vegetarian</option>
               <option value="lacto-Vegetarian">Lacto-Vegetarian</option>
               <option value="ovo-Vegetarian">Ovo-Vegetarian</option>
               <option value="vegan">Vegan</option>
               <option value="pescetarian">Pescetarian</option>
-              <option value="paleo" defaultValue>Paleo</option>
+              <option value="paleolithic" >Paleo</option>
               <option value="primal">Primal</option>
               <option value="whole30">Whole30</option>
             </select>
-
+            <br />
+            <label>Meal time: </label>
             <select name="time" value={this.state.time} onChange={this.handleChange}>
-              <option selected hidden>Choose here</option>
+              <option defaultValue hidden>Choose here</option>
+              <option value="">None</option>
               <option value="breakfast">Breakfast</option>
-              <option value="lunch" defaultValue>Lunch</option>
+              <option value="lunch">Lunch</option>
               <option value="dinner">Dinner</option>
               <option value="dessert">Dessert</option>
             </select>
 
-            <button onClick={this.getRecipe}>Get Recipe</button>
-          </Box>
-            {this.state.tryAgain === false ? (<Recipe recipe={this.state.currentRecipe} style={{display: "flex", flexDirection: "row"}} />): (<p>No results found, try again</p>)
-            }
 
+            <button className={styles.recipeButton} onClick={this.getRecipe}>Get Recipe</button>
+
+          </div>
+            {this.state.showRecipe ? (<Recipe recipe={this.state.currentRecipe}  />): null
+            }
+            {this.state.noResponse ? <p style={{textAlign: "center"}}>No results found, try searching again!</p> : null}
 
       </div>
     );

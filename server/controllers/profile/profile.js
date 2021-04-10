@@ -68,16 +68,6 @@ module.exports = {
         res.sendStatus(400);
       });
   },
-  updatePreferences: (req, res) => {
-    const { id, first_name, last_name, age, target_calories, diet, exclude } = req.body;
-    db.query('UPDATE users SET first_name = $1, last_name = $2, age = $3, target_calories = $4, diet = $5, exclude = $6 WHERE id = $7 RETURNING *;', [first_name, last_name, age, target_calories, diet, exclude, id])
-      .then(data => {
-        res.json(data.rows[0]);
-      })
-      .catch(err => {
-        res.send(err);
-      });
-  },
   changePlan: (req, res) => {
     const { meal_id, id, target_calories, diet, exclude } = req.body;
     const timeFrame = 'day';
@@ -114,6 +104,16 @@ module.exports = {
       })
       .catch(() => {
         res.sendStatus(400);
+      });
+  },
+  updatePreferences: (req, res) => {
+    const { id, first_name, last_name, age, target_calories, diet, exclude } = req.body;
+    db.query('UPDATE users SET first_name = $1, last_name = $2, age = $3, target_calories = $4, diet = $5, exclude = $6 WHERE id = $7 RETURNING *;', [first_name, last_name, age, target_calories, diet, exclude, id])
+      .then(data => {
+        res.json(data.rows[0]);
+      })
+      .catch(err => {
+        res.send(err);
       });
   },
   updateSubscription: (req, res) => {

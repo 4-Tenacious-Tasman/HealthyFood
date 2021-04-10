@@ -7,11 +7,11 @@ let healthyfood = express.Router();
 healthyfood.get('/userPlans',profile.userPlans);
 healthyfood.get('/userDetails',profile.userDetails);
 
-healthyfood.post('/newPlan', profile.newPlan);
+healthyfood.post('/userPlans', profile.newPlan);
 
-healthyfood.put('/updatePreferences',profile.updatePreferences);
-healthyfood.put('/changePlan',profile.changePlan);
-healthyfood.put('/updateSubscription', profile.updateSubscription);
+healthyfood.put('/userPlans',profile.changePlan);
+healthyfood.put('/userDetails',profile.updatePreferences);
+healthyfood.put('/subscription', profile.updateSubscription);
 // Marketplace endpoints
 healthyfood.get('/ingredients', marketplace.getAllIngredients);
 

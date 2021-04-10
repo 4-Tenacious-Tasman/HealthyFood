@@ -7,8 +7,8 @@ const {
   changePlan,
   updatePreferences,
   updateSubscription
-} = require('../../models/profile/models.js');
-const { mealPlan, apiKey, recipes } = require('../../config.js');
+} = require('../models/profile.js');
+const { mealPlan, apiKey, recipes } = require('../config.js');
 
 module.exports = {
   response: (err, data, res) => {

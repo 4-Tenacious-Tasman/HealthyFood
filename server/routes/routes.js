@@ -1,6 +1,6 @@
 const express = require('express');
-const marketplace = require('../marketplace/marketplace.js');
-let profile = require('../profile/profile.js');
+const marketplace = require('../controllers/marketplace.js');
+let profile = require('../controllers/profile.js');
 
 let healthyfood = express.Router();
 // User profile endpoints

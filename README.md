@@ -1,6 +1,17 @@
-# HealthyFood, Inc. 🍎
+## HealthyFood 🍎
+HealthyFood is a business web application. The application contains a modern landing page, online marketplace, recipe generator, and user profile for authenticated users.
 
-## Technology Stack
+### Table of Contents
+
+### Features
+- 
+
+### Installation
+#### Pre-Installation
+    Node 
+
+
+### Technology Stack
 - [React.js](https://reactjs.org/)
 - [React-bootstrap](https://react-bootstrap.github.io/)
 - [Node.js](https://nodejs.org/dist/latest-v15.x/docs/api/) + [Express.js](https://expressjs.com/)

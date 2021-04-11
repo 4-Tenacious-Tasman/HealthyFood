@@ -1,6 +1,6 @@
 const express = require('express');
 const axios = require('axios')
-const db = require('../../../database/index.js');
+const db = require('../../database/index.js');
 
 module.exports = {
   getAllIngredients: (req, res) => {

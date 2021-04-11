@@ -68,7 +68,7 @@ class UserProfile extends React.Component {
 
   newPlan() {
     const { date, user } = this.state;
-    axios.post('/newPlan', {
+    axios.post('/userPlans', {
       date,
       id: user.id,
       target_calories: user.preferences.target_calories,
@@ -88,7 +88,7 @@ class UserProfile extends React.Component {
 
   changePlan(meal_id) {
     const { user } = this.state;
-    axios.put('/changePlan', {
+    axios.put('/userPlans', {
       meal_id,
       id: user.id,
       target_calories: user.preferences.target_calories,
@@ -131,7 +131,7 @@ class UserProfile extends React.Component {
     const { first_name, last_name, age, target_calories, diet, exclude } = usr;
     const { id } = this.state.user;
     const excludeString = exclude.join();
-    axios.put('/updatePreferences', { id, first_name, last_name, age, target_calories, diet, exclude: excludeString })
+    axios.put('/userDetails', { id, first_name, last_name, age, target_calories, diet, exclude: excludeString })
       .then(response => {
         const { id, first_name, last_name, email, age, target_calories, diet, exclude } = response.data;
         this.setState({
@@ -152,7 +152,7 @@ class UserProfile extends React.Component {
   updateSubscription() {
     const updated = !this.state.subscribed;
     const { id } = this.state.user;
-    axios.put('/updateSubscription', {
+    axios.put('/subscription', {
       subscribed: updated,
       id
     })
